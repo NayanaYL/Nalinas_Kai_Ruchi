@@ -1,0 +1,75 @@
+@import "tailwindcss";
+
+@layer base {
+  :root {
+    --font-serif: 'Playfair Display', Georgia, serif;
+    --font-cormorant: 'Cormorant Garamond', Georgia, serif;
+    --font-sans: 'Inter', system-ui, -apple-system, sans-serif;
+    --font-script: 'Satisfy', cursive;
+    --font-calligraphy: 'Great Vibes', cursive;
+    --font-handwriting: 'Caveat', cursive;
+    --font-kannada: 'Noto Serif Kannada', serif;
+  }
+
+  html {
+    scroll-behavior: smooth;
+  }
+
+  body {
+    margin: 0;
+    padding: 0;
+    background-color: #f8f2e6;
+    color: #2b1710;
+    font-family: 'Inter', system-ui, -apple-system, sans-serif;
+    overflow-x: hidden;
+  }
+
+  #root {
+    width: 100% !important;
+    max-width: 100% !important;
+    margin: 0 !important;
+    padding: 0 !important;
+    border: none !important;
+    text-align: left !important;
+  }
+}
+
+/* Animations */
+@keyframes fadeIn {
+  from { opacity: 0; transform: scale(0.98); }
+  to { opacity: 1; transform: scale(1); }
+}
+
+.animate-fadeIn {
+  animation: fadeIn 0.2s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+}
+
+/* Custom scrollbar */
+::-webkit-scrollbar {
+  width: 8px;
+}
+::-webkit-scrollbar-track {
+  background: #f8f2e6;
+}
+::-webkit-scrollbar-thumb {
+  background: #4a0d09;
+  border-radius: 4px;
+}
+/* Font Utilities */
+.font-brand-script {
+  font-family: 'Satisfy', cursive;
+}
+.font-serif-heading {
+  font-family: 'Playfair Display', Georgia, serif;
+}
+.font-kannada {
+  font-family: 'Noto Serif Kannada', serif;
+}
+.font-handwriting {
+  font-family: 'Caveat', cursive;
+}
+.font-cormorant {
+  font-family: 'Cormorant Garamond', Georgia, serif;
+}
+
+
