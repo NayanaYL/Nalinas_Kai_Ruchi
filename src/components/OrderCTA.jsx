@@ -51,9 +51,10 @@ export const OrderCTA = ({ lang }) => {
 
             {/* Location Item */}
             <a 
-              href="https://maps.google.com/?q=Bengaluru,Karnataka"
+              href="https://www.google.com/maps/place/A6+RESIDENCY/@12.8809165,77.5559192,17z/data=!3m1!4b1!4m6!3m5!1s0x3bae3f2357cfa60b:0x9e289791d0e9e6b!8m2!3d12.8809165!4d77.5584941!16s%2Fg%2F11krcd9vh7?entry=ttu&g_ep=EgoyMDI2MDkyMS4wIKXMDSoASAFQAw%3D%3D"
               target="_blank"
               rel="noopener noreferrer"
+              title="A6 Residency, Bengaluru"
               className="flex items-center gap-3 group text-left"
             >
               <div className="w-9 h-9 rounded-full bg-[#35170d] text-[#fff9ec] flex items-center justify-center flex-shrink-0 group-hover:bg-[#5a0905] transition-colors">
