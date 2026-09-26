@@ -32,12 +32,12 @@ export const Hero = ({ lang, onExploreClick }) => {
             </div>
 
             {/* Main Title: Nalina's Kai Ruchi */}
-            <h1 className="font-serif text-[42px] sm:text-[54px] lg:text-[62px] text-[#fff9ec] font-normal tracking-tight leading-[1.08] drop-shadow-sm">
+            <h1 className="font-serif text-[32px] sm:text-[54px] lg:text-[62px] text-[#fff9ec] font-normal tracking-tight leading-[1.02] sm:leading-[1.08] drop-shadow-sm">
               Nalina’s Kai Ruchi
             </h1>
 
             {/* Subheading */}
-            <p className="font-serif text-[20px] sm:text-[23px] lg:text-[25px] text-[#e8c878] leading-snug drop-shadow">
+            <p className="font-serif text-[17px] sm:text-[23px] lg:text-[25px] text-[#e8c878] leading-snug drop-shadow">
               Bringing traditional flavours<br />
               to your table.
             </p>

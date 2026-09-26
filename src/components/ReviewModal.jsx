@@ -2,6 +2,11 @@ import React, { useState } from 'react';
 import { X, Star, MessageCircle, Send, Check } from 'lucide-react';
 import { MENU_CATEGORIES } from '../data/menuData';
 
+const sanitizeText = (value) =>
+  String(value || '')
+    .replace(/[<>]/g, '')
+    .trim();
+
 export const ReviewModal = ({ isOpen, onClose, onAddReview, lang }) => {
   const [name, setName] = useState('');
   const [location, setLocation] = useState('');
@@ -10,42 +15,90 @@ export const ReviewModal = ({ isOpen, onClose, onAddReview, lang }) => {
   const [comment, setComment] = useState('');
   const [hoverRating, setHoverRating] = useState(0);
   const [submitted, setSubmitted] = useState(false);
+  const [error, setError] = useState('');
 
   if (!isOpen) return null;
 
-  // List of all products for dropdown
-  const allProducts = MENU_CATEGORIES.flatMap(cat => cat.items.map(i => i.name));
+  const allProducts = MENU_CATEGORIES.flatMap((cat) => cat.items.map((item) => item.name));
 
   const handleSubmit = (e) => {
     e.preventDefault();
-    if (!name.trim() || !comment.trim()) return;
+
+    const cleanName = sanitizeText(name);
+    const cleanLocation = sanitizeText(location);
+    const cleanComment = sanitizeText(comment);
+
+    if (!cleanName) {
+      setError('Please enter your name.');
+      return;
+    }
+
+    if (!cleanComment) {
+      setError('Please enter a review message.');
+      return;
+    }
+
+    if (cleanComment.length < 10) {
+      setError('Your review must be at least 10 characters long.');
+      return;
+    }
+
+    if (cleanComment.toLowerCase().includes('http://') || cleanComment.toLowerCase().includes('https://')) {
+      setError('Links are not allowed in reviews.');
+      return;
+    }
+
+    if (/^(.)\1{8,}$/i.test(cleanComment)) {
+      setError('This review looks like spam. Please write a meaningful message.');
+      return;
+    }
 
     const newRev = {
       id: `rev-${Date.now()}`,
-      name: name.trim(),
-      location: location.trim() || 'Bengaluru, Karnataka',
-      rating,
-      date: 'Just now',
-      product,
-      comment: comment.trim(),
-      verified: true
+      name: cleanName,
+      location: cleanLocation || 'Bengaluru, Karnataka',
+      rating: Number(rating) || 5,
+      date: new Date().toLocaleDateString('en-GB', {
+        day: '2-digit',
+        month: 'short',
+        year: 'numeric'
+      }),
+      product: sanitizeText(product),
+      comment: cleanComment,
+      verified: false,
+      status: 'pending'
     };
 
     onAddReview(newRev);
     setSubmitted(true);
+    setError('');
     setTimeout(() => {
       setSubmitted(false);
+      setName('');
+      setLocation('');
+      setProduct('Bisi Bele Bath Powder');
+      setRating(5);
+      setComment('');
+      setHoverRating(0);
       onClose();
-    }, 1200);
+    }, 1400);
   };
 
   const handleWhatsAppSubmit = () => {
-    if (!name.trim() || !comment.trim()) return;
+    const cleanName = sanitizeText(name);
+    const cleanLocation = sanitizeText(location);
+    const cleanComment = sanitizeText(comment);
+
+    if (!cleanName || !cleanComment) {
+      setError('Please fill in your name and review before sending via WhatsApp.');
+      return;
+    }
+
     const msg = `Hello Nalina's Kai Ruchi! I would like to submit a customer review:
-- Name: ${name.trim()} (${location.trim() || 'Bengaluru'})
+- Name: ${cleanName} (${cleanLocation || 'Bengaluru'})
 - Rating: ${'★'.repeat(rating)} (${rating}/5)
-- Product: ${product}
-- Review: "${comment.trim()}"
+- Product: ${sanitizeText(product)}
+- Review: "${cleanComment}"
 
 Thank you for the authentic traditional food!`;
     window.open(`https://wa.me/919980819355?text=${encodeURIComponent(msg)}`, '_blank');
@@ -58,7 +111,6 @@ Thank you for the authentic traditional food!`;
         className="bg-[#fffdf9] w-full max-w-lg rounded-lg shadow-2xl border border-[#d8a83e]/50 flex flex-col overflow-hidden text-left"
         onClick={(e) => e.stopPropagation()}
       >
-        {/* Header */}
         <div className="bg-[#4a0d09] px-6 py-4 flex items-center justify-between text-[#fff9ec] border-b border-[#d8a83e]/30">
           <div>
             <span className="text-[11px] font-sans tracking-widest uppercase text-[#d8a83e]">
@@ -85,13 +137,11 @@ Thank you for the authentic traditional food!`;
               Thank You! / ಧನ್ಯವಾದಗಳು
             </h3>
             <p className="text-[13.5px] text-[#6d5142]">
-              Your review has been posted and will appear on our customer reviews section.
+              Your review has been submitted and is now pending approval before it appears publicly.
             </p>
           </div>
         ) : (
           <form onSubmit={handleSubmit} className="p-6 space-y-4 overflow-y-auto max-h-[75vh]">
-            
-            {/* Star Rating Selector */}
             <div>
               <label className="block text-[12.5px] font-semibold text-[#35170d] mb-1">
                 Your Rating
@@ -121,7 +171,6 @@ Thank you for the authentic traditional food!`;
               </div>
             </div>
 
-            {/* Name */}
             <div>
               <label className="block text-[12.5px] font-semibold text-[#35170d] mb-1">
                 Your Name <span className="text-red-600">*</span>
@@ -136,7 +185,6 @@ Thank you for the authentic traditional food!`;
               />
             </div>
 
-            {/* Location */}
             <div>
               <label className="block text-[12.5px] font-semibold text-[#35170d] mb-1">
                 City / Location
@@ -150,7 +198,6 @@ Thank you for the authentic traditional food!`;
               />
             </div>
 
-            {/* Product Reviewed */}
             <div>
               <label className="block text-[12.5px] font-semibold text-[#35170d] mb-1">
                 Product You Enjoyed
@@ -166,7 +213,6 @@ Thank you for the authentic traditional food!`;
               </select>
             </div>
 
-            {/* Review Comment */}
             <div>
               <label className="block text-[12.5px] font-semibold text-[#35170d] mb-1">
                 Your Review <span className="text-red-600">*</span>
@@ -181,7 +227,12 @@ Thank you for the authentic traditional food!`;
               />
             </div>
 
-            {/* Action Buttons */}
+            {error && (
+              <div className="rounded border border-red-200 bg-red-50 px-3 py-2 text-xs text-red-700">
+                {error}
+              </div>
+            )}
+
             <div className="pt-2 flex flex-col sm:flex-row items-center gap-2.5">
               <button
                 type="submit"

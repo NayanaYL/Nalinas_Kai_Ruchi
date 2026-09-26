@@ -151,11 +151,11 @@ export const MENU_CATEGORIES = [
     items: [
       {
         id: "kai-chakkuli",
-        name: "Chakkuli",
-        kannadaName: "ಚಕ್ಕುಲಿ",
+        name: "Butter Chakkuli",
+        kannadaName: "ಬೆಣ್ಣೆ ಮುರುಕು",
         description: "Crunchy spiral delight made with rice flour, roasted urad dal, cumin, sesame and rich country butter.",
         weights: ["100g", "200g", "500g"],
-        prices: { "100g": 90, "200g": 170, "500g": 400 },
+        prices: { "100g": 69, "200g": 139, "500g": 299 },
         badge: "Melt In Mouth",
         shelfLife: "45 Days"
       },
@@ -165,7 +165,7 @@ export const MENU_CATEGORIES = [
         kannadaName: "ಗರಿಗರಿ ನಿಪ್ಪಟ್ಟು",
         description: "Spicy Karnataka rice crisps studded with roasted peanuts, fried gram, curry leaves, and green chillies.",
         weights: ["100g", "200g", "500g"],
-        prices: { "100g": 90, "200g": 170, "500g": 400 },
+        prices: { "100g": 69, "200g": 139, "500g": 299 },
         badge: "Evening Tea Classic",
         shelfLife: "45 Days"
       },
@@ -175,7 +175,7 @@ export const MENU_CATEGORIES = [
         kannadaName: "ಕೋಡುಬಳೆ",
         description: "Ring-shaped savoury snack with the distinctive crunch of roasted rice flour, coconut and red chilli.",
         weights: ["100g", "200g", "500g"],
-        prices: { "100g": 90, "200g": 170, "500g": 400 },
+        prices: { "100g": 72, "200g": 140, "500g": 299 },
         badge: "Crispy Delight",
         shelfLife: "45 Days"
       },

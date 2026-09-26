@@ -2,7 +2,7 @@ import React from 'react';
 import { ArrowRight } from 'lucide-react';
 import { BotanicalLeaf } from './Decorations';
 
-export const StoryAndKitchen = ({ onOpenStory, onOpenJournal }) => {
+export const StoryAndKitchen = ({ onOpenStory }) => {
   return (
     <section id="story" className="w-full bg-[#f8f2e6] pb-14 sm:pb-18">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
@@ -84,19 +84,8 @@ export const StoryAndKitchen = ({ onOpenStory, onOpenJournal }) => {
               </div>
 
               <p className="text-[12.8px] text-[#52392c] leading-relaxed font-sans text-left">
-                Every spice, every ingredient has a story. Explore our journal for recipes, preparation tips and the rich culture of Karnataka cuisine.
+                Every spice, every ingredient has a story, and each recipe carries the warmth of a home kitchen and a family tradition.
               </p>
-            </div>
-
-            {/* Visit Journal Link */}
-            <div className="pt-3 mt-3 border-t border-[#e8dbc4]/70 text-left">
-              <button
-                onClick={onOpenJournal}
-                className="group inline-flex items-center gap-1.5 text-[13.5px] font-semibold text-[#35170d] hover:text-[#5a0905] transition-colors"
-              >
-                <span>Visit Journal</span>
-                <ArrowRight className="w-3.5 h-3.5 transition-transform duration-200 group-hover:translate-x-1" />
-              </button>
             </div>
 
           </div>

@@ -6,8 +6,7 @@ export const Navbar = ({
   lang, 
   setLang, 
   onOpenSearch, 
-  onSelectCategory,
-  onOpenPoster
+  onSelectCategory
 }) => {
   const [isScrolled, setIsScrolled] = useState(false);
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
@@ -23,7 +22,7 @@ export const Navbar = ({
       }
 
       // Check current visible section
-      const sections = ['home', 'story', 'menu', 'journal', 'reviews', 'order'];
+      const sections = ['home', 'story', 'menu', 'reviews', 'order'];
       const scrollPos = window.scrollY + 200;
       for (const section of sections) {
         const el = document.getElementById(section);
@@ -61,7 +60,6 @@ export const Navbar = ({
     home: lang === 'en' ? 'Home' : 'ಮುಖಪುಟ',
     story: lang === 'en' ? 'Our Story' : 'ನಮ್ಮ ಕಥೆ',
     menu: lang === 'en' ? 'Menu' : 'ಮೆನು',
-    journal: lang === 'en' ? 'Journal' : 'ಲೇಖನಗಳು',
     reviews: lang === 'en' ? 'Reviews' : 'ಅನಿಸಿಕೆಗಳು',
     contact: lang === 'en' ? 'Contact' : 'ಸಂಪರ್ಕಿಸಿ',
     orderNow: lang === 'en' ? 'Order Now' : 'ಈಗಲೇ ಆರ್ಡರ್ ಮಾಡಿ'
@@ -69,26 +67,26 @@ export const Navbar = ({
 
   return (
     <header className={`sticky top-0 z-50 w-full bg-[#4a0d09] border-b border-[#d8a83e]/20 transition-all duration-300 ${isScrolled ? 'shadow-lg bg-[#4a0d09]/95 backdrop-blur-sm' : 'shadow-md'}`}>
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 h-[68px] flex items-center justify-between">
+      <div className="max-w-7xl mx-auto px-3 sm:px-6 lg:px-8 h-[58px] sm:h-[68px] flex items-center justify-between">
         
         {/* LEFT: Logo & Brand */}
         <a 
           href="#home" 
           onClick={(e) => { e.preventDefault(); scrollTo('home'); }}
-          className="flex items-center gap-3 group focus:outline-none"
+          className="flex items-center gap-2 sm:gap-3 group focus:outline-none min-w-0"
         >
-          <div className="relative w-11 h-11 rounded-full border border-[#d8a83e]/40 overflow-hidden flex items-center justify-center bg-[#3a0705] p-0.5">
+          <div className="relative w-9 h-9 sm:w-11 sm:h-11 rounded-full border border-[#d8a83e]/40 overflow-hidden flex items-center justify-center bg-[#3a0705] p-0.5 shrink-0">
             <img 
               src="/images/logo-cook.png" 
               alt="Nalina's Kai Ruchi Cook Logo" 
               className="w-full h-full object-cover rounded-full"
             />
           </div>
-          <div className="flex flex-col text-left">
-            <span className="font-['Satisfy',cursive] text-[21px] sm:text-[23px] text-[#fff9ec] leading-tight tracking-wide group-hover:text-[#d8a83e] transition-colors">
+          <div className="flex flex-col text-left min-w-0">
+            <span className="font-['Satisfy',cursive] text-[18px] sm:text-[23px] text-[#fff9ec] leading-none tracking-wide group-hover:text-[#d8a83e] transition-colors whitespace-nowrap">
               Nalina's Kai Ruchi
             </span>
-            <span className="text-[11px] sm:text-[11.5px] text-[#f8f0df]/85 tracking-tight font-serif italic">
+            <span className="hidden sm:block text-[11px] sm:text-[11.5px] text-[#f8f0df]/85 tracking-tight font-serif italic">
               Bringing <strong className="font-semibold not-italic">Brahmins</strong> tradition to your table
             </span>
           </div>
@@ -165,18 +163,6 @@ export const Navbar = ({
           </div>
 
           <button
-            onClick={() => scrollTo('journal')}
-            className={`relative py-1 transition-colors hover:text-[#d8a83e] ${
-              activeSection === 'journal' ? 'text-white' : 'text-[#f8f0df]/90'
-            }`}
-          >
-            {navLabels.journal}
-            {activeSection === 'journal' && (
-              <span className="absolute bottom-0 left-0 w-full h-[1.5px] bg-[#d8a83e]" />
-            )}
-          </button>
-
-          <button
             onClick={() => scrollTo('reviews')}
             className={`relative py-1 transition-colors hover:text-[#d8a83e] ${
               activeSection === 'reviews' ? 'text-white' : 'text-[#f8f0df]/90'
@@ -199,27 +185,20 @@ export const Navbar = ({
               <span className="absolute bottom-0 left-0 w-full h-[1.5px] bg-[#d8a83e]" />
             )}
           </button>
-
-          <button
-            onClick={onOpenPoster}
-            className="relative py-1 text-[#d8a83e] hover:text-[#fff] transition-colors font-semibold"
-          >
-            {lang === 'en' ? 'Poster' : 'ಪೋಸ್ಟರ್'}
-          </button>
         </nav>
 
         {/* RIGHT: Language Toggle, Search, Order Now */}
-        <div className="flex items-center gap-3 sm:gap-4">
+        <div className="flex items-center gap-2 sm:gap-4">
           
           {/* Language Toggle Pill: EN | ಕನ್ನಡ */}
-          <div className="flex items-center border border-[#d8a83e]/40 rounded-full px-2.5 py-1 text-[12px] font-sans font-medium text-[#f8f0df]">
+          <div className="flex items-center border border-[#d8a83e]/40 rounded-full px-2 py-1 text-[10px] sm:text-[12px] font-sans font-medium text-[#f8f0df]">
             <button
               onClick={() => setLang('en')}
               className={`transition-colors ${lang === 'en' ? 'text-[#d8a83e] font-semibold' : 'text-[#f8f0df]/70 hover:text-white'}`}
             >
               EN
             </button>
-            <span className="mx-1.5 text-[#d8a83e]/50">|</span>
+            <span className="mx-1 sm:mx-1.5 text-[#d8a83e]/50">|</span>
             <button
               onClick={() => setLang('kn')}
               className={`transition-colors ${lang === 'kn' ? 'text-[#d8a83e] font-semibold' : 'text-[#f8f0df]/70 hover:text-white'}`}
@@ -234,7 +213,7 @@ export const Navbar = ({
             aria-label="Search spices and snacks"
             className="p-1.5 text-[#f8f0df] hover:text-[#d8a83e] transition-colors"
           >
-            <Search className="w-4 h-4" />
+            <Search className="w-4 h-4 sm:w-4 sm:h-4" />
           </button>
 
           {/* WhatsApp Order Now Button (Pistachio/light golden pill with WhatsApp icon) */}
@@ -284,12 +263,6 @@ export const Navbar = ({
               {navLabels.menu}
             </button>
             <button 
-              onClick={() => scrollTo('journal')}
-              className="text-left py-1 hover:text-[#d8a83e]"
-            >
-              {navLabels.journal}
-            </button>
-            <button 
               onClick={() => scrollTo('reviews')}
               className="text-left py-1 hover:text-[#d8a83e]"
             >
@@ -300,15 +273,6 @@ export const Navbar = ({
               className="text-left py-1 hover:text-[#d8a83e]"
             >
               {navLabels.contact}
-            </button>
-            <button 
-              onClick={() => {
-                setMobileMenuOpen(false);
-                onOpenPoster();
-              }}
-              className="text-left py-1 text-[#d8a83e] font-semibold"
-            >
-              {lang === 'en' ? 'Brand Poster' : 'ಬ್ರ್ಯಾಂಡ್ ಪೋಸ್ಟರ್'}
             </button>
           </div>
 

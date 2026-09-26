@@ -10,7 +10,7 @@ const InstagramIcon = ({ className = "w-5 h-5" }) => (
   </svg>
 );
 
-export const Footer = ({ lang, setLang, onOpenPoster }) => {
+export const Footer = ({ lang, setLang }) => {
   const scrollTo = (id) => {
     const el = document.getElementById(id);
     if (el) {
@@ -54,17 +54,11 @@ export const Footer = ({ lang, setLang, onOpenPoster }) => {
             <button onClick={() => scrollTo('menu')} className="hover:text-[#d8a83e] transition-colors">
               Menu
             </button>
-            <button onClick={() => scrollTo('story')} className="hover:text-[#d8a83e] transition-colors">
-              Journal
-            </button>
             <button onClick={() => scrollTo('reviews')} className="hover:text-[#d8a83e] transition-colors">
               {lang === 'en' ? 'Reviews' : 'ಅನಿಸಿಕೆಗಳು'}
             </button>
             <button onClick={() => scrollTo('order')} className="hover:text-[#d8a83e] transition-colors">
               Contact
-            </button>
-            <button onClick={onOpenPoster} className="text-[#d8a83e] hover:text-[#fff] transition-colors font-medium">
-              {lang === 'en' ? 'Poster' : 'ಪೋಸ್ಟರ್'}
             </button>
 
             {/* Language toggle pill in footer */}
@@ -88,7 +82,7 @@ export const Footer = ({ lang, setLang, onOpenPoster }) => {
           {/* RIGHT: Social Icons & Handwritten Motto */}
           <div className="flex items-center gap-4">
             <a
-              href="https://instagram.com"
+              href="https://www.instagram.com/nalinaskairuchi?stkn=bWpoMjYyc243ZDMw"
               target="_blank"
               rel="noopener noreferrer"
               aria-label="Instagram"
