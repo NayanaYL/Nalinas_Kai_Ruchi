@@ -13,7 +13,7 @@ import { CustomerReviews } from './components/CustomerReviews';
 import { ReviewModal } from './components/ReviewModal';
 import { DEFAULT_REVIEWS } from './data/reviewsData';
 
-const REVIEW_STORAGE_KEY = 'nalinas_reviews_store';
+const REVIEW_STORAGE_KEYS = ['nalinas_reviews_store', 'nalinas_reviews'];
 
 const normalizeReview = (review, index = 0) => ({
   id: review.id || `rev-${Date.now()}-${index}`,
@@ -36,26 +36,30 @@ export default function App() {
   const [reviewQueueOpen, setReviewQueueOpen] = useState(false);
 
   const [reviews, setReviews] = useState(() => {
-    try {
-      const saved = localStorage.getItem(REVIEW_STORAGE_KEY);
-      if (saved) {
-        const parsed = JSON.parse(saved);
-        if (Array.isArray(parsed)) {
-          return parsed.map((review, index) => normalizeReview(review, index));
+    for (const storageKey of REVIEW_STORAGE_KEYS) {
+      try {
+        const saved = localStorage.getItem(storageKey);
+        if (saved) {
+          const parsed = JSON.parse(saved);
+          if (Array.isArray(parsed)) {
+            return parsed.map((review, index) => normalizeReview(review, index));
+          }
         }
+      } catch (e) {
+        console.error(`Failed to load reviews from localStorage key: ${storageKey}`, e);
       }
-    } catch (e) {
-      console.error('Failed to load reviews from localStorage', e);
     }
     return DEFAULT_REVIEWS;
   });
 
   const persistReviews = (updatedReviews) => {
-    try {
-      localStorage.setItem(REVIEW_STORAGE_KEY, JSON.stringify(updatedReviews));
-    } catch (e) {
-      console.error('Failed to save reviews to localStorage', e);
-    }
+    REVIEW_STORAGE_KEYS.forEach((storageKey) => {
+      try {
+        localStorage.setItem(storageKey, JSON.stringify(updatedReviews));
+      } catch (e) {
+        console.error(`Failed to save reviews to localStorage key: ${storageKey}`, e);
+      }
+    });
   };
 
   const handleAddReview = (newReview) => {

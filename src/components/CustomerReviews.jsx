@@ -3,6 +3,8 @@ import { Star, CheckCircle, MessageSquarePlus, MapPin, ShieldCheck } from 'lucid
 import { KolamDivider } from './Decorations';
 
 export const CustomerReviews = ({ lang, reviews, onOpenReviewModal, onOpenReviewQueue, pendingReviewsCount = 0 }) => {
+  const showPendingNotice = pendingReviewsCount > 0;
+
   return (
     <section id="reviews" className="w-full bg-[#f8f2e6] py-14 sm:py-18 border-t border-[#e8dbc4]">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
@@ -45,7 +47,15 @@ export const CustomerReviews = ({ lang, reviews, onOpenReviewModal, onOpenReview
           </div>
         </div>
 
-        {reviews.length === 0 ? (
+        {showPendingNotice && (
+          <div className="mb-5 rounded border border-amber-200 bg-amber-50 px-4 py-3 text-sm text-amber-900">
+            {pendingReviewsCount === 1
+              ? 'Your review was submitted successfully and is pending approval.'
+              : `${pendingReviewsCount} reviews are pending approval and will appear publicly after moderation.`}
+          </div>
+        )}
+
+        {reviews.length === 0 && !showPendingNotice ? (
           <div className="flex flex-col items-center justify-center py-16 px-6 bg-[#fffdf9] border border-[#e8dbc4] rounded-[6px] text-center shadow-sm">
             <div className="flex items-center gap-1 mb-4">
               {[1, 2, 3, 4, 5].map((s) => (
