@@ -7,7 +7,7 @@ export const Navbar = ({
   setLang, 
   onOpenSearch, 
   onSelectCategory,
-  onOpenQuickOrder 
+  onOpenPoster
 }) => {
   const [isScrolled, setIsScrolled] = useState(false);
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
@@ -23,7 +23,7 @@ export const Navbar = ({
       }
 
       // Check current visible section
-      const sections = ['home', 'story', 'menu', 'journal', 'order'];
+      const sections = ['home', 'story', 'menu', 'journal', 'reviews', 'order'];
       const scrollPos = window.scrollY + 200;
       for (const section of sections) {
         const el = document.getElementById(section);
@@ -62,12 +62,13 @@ export const Navbar = ({
     story: lang === 'en' ? 'Our Story' : 'ನಮ್ಮ ಕಥೆ',
     menu: lang === 'en' ? 'Menu' : 'ಮೆನು',
     journal: lang === 'en' ? 'Journal' : 'ಲೇಖನಗಳು',
+    reviews: lang === 'en' ? 'Reviews' : 'ಅನಿಸಿಕೆಗಳು',
     contact: lang === 'en' ? 'Contact' : 'ಸಂಪರ್ಕಿಸಿ',
     orderNow: lang === 'en' ? 'Order Now' : 'ಈಗಲೇ ಆರ್ಡರ್ ಮಾಡಿ'
   };
 
   return (
-    <header className="sticky top-0 z-50 w-full bg-[#4a0d09] border-b border-[#d8a83e]/20 shadow-md transition-all duration-300">
+    <header className={`sticky top-0 z-50 w-full bg-[#4a0d09] border-b border-[#d8a83e]/20 transition-all duration-300 ${isScrolled ? 'shadow-lg bg-[#4a0d09]/95 backdrop-blur-sm' : 'shadow-md'}`}>
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 h-[68px] flex items-center justify-between">
         
         {/* LEFT: Logo & Brand */}
@@ -176,6 +177,18 @@ export const Navbar = ({
           </button>
 
           <button
+            onClick={() => scrollTo('reviews')}
+            className={`relative py-1 transition-colors hover:text-[#d8a83e] ${
+              activeSection === 'reviews' ? 'text-white' : 'text-[#f8f0df]/90'
+            }`}
+          >
+            {navLabels.reviews}
+            {activeSection === 'reviews' && (
+              <span className="absolute bottom-0 left-0 w-full h-[1.5px] bg-[#d8a83e]" />
+            )}
+          </button>
+
+          <button
             onClick={() => scrollTo('order')}
             className={`relative py-1 transition-colors hover:text-[#d8a83e] ${
               activeSection === 'order' ? 'text-white' : 'text-[#f8f0df]/90'
@@ -185,6 +198,13 @@ export const Navbar = ({
             {activeSection === 'order' && (
               <span className="absolute bottom-0 left-0 w-full h-[1.5px] bg-[#d8a83e]" />
             )}
+          </button>
+
+          <button
+            onClick={onOpenPoster}
+            className="relative py-1 text-[#d8a83e] hover:text-[#fff] transition-colors font-semibold"
+          >
+            {lang === 'en' ? 'Poster' : 'ಪೋಸ್ಟರ್'}
           </button>
         </nav>
 
@@ -270,10 +290,25 @@ export const Navbar = ({
               {navLabels.journal}
             </button>
             <button 
+              onClick={() => scrollTo('reviews')}
+              className="text-left py-1 hover:text-[#d8a83e]"
+            >
+              {navLabels.reviews}
+            </button>
+            <button 
               onClick={() => scrollTo('order')}
               className="text-left py-1 hover:text-[#d8a83e]"
             >
               {navLabels.contact}
+            </button>
+            <button 
+              onClick={() => {
+                setMobileMenuOpen(false);
+                onOpenPoster();
+              }}
+              className="text-left py-1 text-[#d8a83e] font-semibold"
+            >
+              {lang === 'en' ? 'Brand Poster' : 'ಬ್ರ್ಯಾಂಡ್ ಪೋಸ್ಟರ್'}
             </button>
           </div>
 

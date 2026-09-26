@@ -3,9 +3,9 @@ import { Search, X, MessageCircle, ArrowRight } from 'lucide-react';
 import { MENU_CATEGORIES } from '../data/menuData';
 
 export const SearchModal = ({ isOpen, onClose, onSelectCategory }) => {
-  if (!isOpen) return null;
-
   const [query, setQuery] = useState('');
+
+  if (!isOpen) return null;
 
   // Collect all items across categories
   const allItems = MENU_CATEGORIES.flatMap(cat => 
@@ -17,8 +17,7 @@ export const SearchModal = ({ isOpen, onClose, onSelectCategory }) => {
     : allItems.filter(item => 
         item.name.toLowerCase().includes(query.toLowerCase()) ||
         item.kannadaName.includes(query) ||
-        item.description.toLowerCase().includes(query.toLowerCase()) ||
-        item.ingredients.toLowerCase().includes(query.toLowerCase())
+        item.description.toLowerCase().includes(query.toLowerCase())
       );
 
   return (

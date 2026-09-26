@@ -10,7 +10,10 @@ import { MenuCategoryModal } from './components/MenuCategoryModal';
 import { SearchModal } from './components/SearchModal';
 import { StoryModal } from './components/StoryModal';
 import { JournalModal } from './components/JournalModal';
-import { MENU_CATEGORIES } from './data/menuData';
+import { PosterModal } from './components/PosterModal';
+import { CustomerReviews } from './components/CustomerReviews';
+import { ReviewModal } from './components/ReviewModal';
+import { DEFAULT_REVIEWS } from './data/reviewsData';
 
 export default function App() {
   const [lang, setLang] = useState('en');
@@ -18,6 +21,34 @@ export default function App() {
   const [searchOpen, setSearchOpen] = useState(false);
   const [storyOpen, setStoryOpen] = useState(false);
   const [journalOpen, setJournalOpen] = useState(false);
+  const [posterOpen, setPosterOpen] = useState(false);
+  const [reviewModalOpen, setReviewModalOpen] = useState(false);
+
+  // Initialize reviews from localStorage or default reviews
+  const [reviews, setReviews] = useState(() => {
+    try {
+      const saved = localStorage.getItem('nalinas_reviews');
+      if (saved) {
+        const parsed = JSON.parse(saved);
+        if (Array.isArray(parsed) && parsed.length > 0) return parsed;
+      }
+    } catch (e) {
+      console.error('Failed to load reviews from localStorage', e);
+    }
+    return DEFAULT_REVIEWS;
+  });
+
+  const handleAddReview = (newReview) => {
+    setReviews((prev) => {
+      const updated = [newReview, ...prev];
+      try {
+        localStorage.setItem('nalinas_reviews', JSON.stringify(updated));
+      } catch (e) {
+        console.error('Failed to save review to localStorage', e);
+      }
+      return updated;
+    });
+  };
 
   const handleExploreClick = () => {
     const el = document.getElementById('menu');
@@ -34,6 +65,7 @@ export default function App() {
         lang={lang}
         setLang={setLang}
         onOpenSearch={() => setSearchOpen(true)}
+        onOpenPoster={() => setPosterOpen(true)}
         onSelectCategory={(cat) => setActiveCategory(cat)}
       />
 
@@ -59,6 +91,13 @@ export default function App() {
         onOpenJournal={() => setJournalOpen(true)}
       />
 
+      {/* Customer Reviews Section */}
+      <CustomerReviews
+        lang={lang}
+        reviews={reviews}
+        onOpenReviewModal={() => setReviewModalOpen(true)}
+      />
+
       {/* Full-width Order Strip */}
       <OrderCTA lang={lang} />
 
@@ -66,6 +105,7 @@ export default function App() {
       <Footer
         lang={lang}
         setLang={setLang}
+        onOpenPoster={() => setPosterOpen(true)}
       />
 
       {/* Interactive Modals */}
@@ -92,6 +132,18 @@ export default function App() {
       <JournalModal
         isOpen={journalOpen}
         onClose={() => setJournalOpen(false)}
+      />
+
+      <PosterModal
+        isOpen={posterOpen}
+        onClose={() => setPosterOpen(false)}
+      />
+
+      <ReviewModal
+        isOpen={reviewModalOpen}
+        onClose={() => setReviewModalOpen(false)}
+        onAddReview={handleAddReview}
+        lang={lang}
       />
 
     </div>

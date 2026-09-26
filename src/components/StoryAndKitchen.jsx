@@ -2,7 +2,7 @@ import React from 'react';
 import { ArrowRight } from 'lucide-react';
 import { BotanicalLeaf } from './Decorations';
 
-export const StoryAndKitchen = ({ lang, onOpenStory, onOpenJournal }) => {
+export const StoryAndKitchen = ({ onOpenStory, onOpenJournal }) => {
   return (
     <section id="story" className="w-full bg-[#f8f2e6] pb-14 sm:pb-18">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">

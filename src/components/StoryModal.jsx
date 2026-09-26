@@ -1,6 +1,5 @@
 import React from 'react';
 import { X, Heart, Award, Sparkles } from 'lucide-react';
-import { BotanicalLeaf } from './Decorations';
 
 export const StoryModal = ({ isOpen, onClose }) => {
   if (!isOpen) return null;

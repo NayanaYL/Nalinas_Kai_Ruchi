@@ -10,7 +10,7 @@ const InstagramIcon = ({ className = "w-5 h-5" }) => (
   </svg>
 );
 
-export const Footer = ({ lang, setLang }) => {
+export const Footer = ({ lang, setLang, onOpenPoster }) => {
   const scrollTo = (id) => {
     const el = document.getElementById(id);
     if (el) {
@@ -57,8 +57,14 @@ export const Footer = ({ lang, setLang }) => {
             <button onClick={() => scrollTo('story')} className="hover:text-[#d8a83e] transition-colors">
               Journal
             </button>
+            <button onClick={() => scrollTo('reviews')} className="hover:text-[#d8a83e] transition-colors">
+              {lang === 'en' ? 'Reviews' : 'ಅನಿಸಿಕೆಗಳು'}
+            </button>
             <button onClick={() => scrollTo('order')} className="hover:text-[#d8a83e] transition-colors">
               Contact
+            </button>
+            <button onClick={onOpenPoster} className="text-[#d8a83e] hover:text-[#fff] transition-colors font-medium">
+              {lang === 'en' ? 'Poster' : 'ಪೋಸ್ಟರ್'}
             </button>
 
             {/* Language toggle pill in footer */}
@@ -106,8 +112,26 @@ export const Footer = ({ lang, setLang }) => {
 
         </div>
 
+        {/* Delivery & Bulk Orders Note */}
+        <div className="py-2.5 my-2 border-t border-b border-[#d8a83e]/15 text-[12px] text-[#f8f0df]/85 flex flex-wrap items-center justify-center gap-4 sm:gap-8">
+          <span className="flex items-center gap-1.5">
+            <span>🇮🇳</span>
+            <strong>All-India Delivery Available</strong>
+          </span>
+          <span className="text-[#d8a83e]/40">•</span>
+          <span className="flex items-center gap-1.5">
+            <span>📦</span>
+            <strong>Bulk Orders for Events & Festivals Accepted</strong>
+          </span>
+          <span className="text-[#d8a83e]/40">•</span>
+          <span className="flex items-center gap-1.5">
+            <span>🌿</span>
+            <span>100% Homemade Brahmin Tradition</span>
+          </span>
+        </div>
+
         {/* BOTTOM: Copyright & Heritage Tagline */}
-        <div className="pt-4 border-t border-[#d8a83e]/15 flex flex-col sm:flex-row items-center justify-between text-[11.5px] text-[#f8f0df]/70 gap-2">
+        <div className="pt-3 flex flex-col sm:flex-row items-center justify-between text-[11.5px] text-[#f8f0df]/70 gap-2">
           <div>
             © 2025 Nalina's Kai Ruchi. All rights reserved.
           </div>

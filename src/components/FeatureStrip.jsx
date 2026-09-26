@@ -2,7 +2,7 @@ import React from 'react';
 import { Leaf, Home, Heart, Sprout } from 'lucide-react';
 import { TraditionalPotIcon, KolamDivider } from './Decorations';
 
-export const FeatureStrip = ({ lang }) => {
+export const FeatureStrip = () => {
   const features = [
     {
       icon: <Leaf className="w-7 h-7 text-[#5a0905]" strokeWidth={1.4} />,

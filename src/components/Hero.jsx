@@ -70,6 +70,30 @@ export const Hero = ({ lang, onExploreClick }) => {
                 <span>{lang === 'en' ? 'Order Now' : 'ಈಗಲೇ ಆರ್ಡರ್ ಮಾಡಿ'}</span>
               </a>
             </div>
+
+            {/* High-Visibility Badges: All-India Delivery & Bulk Orders */}
+            <div className="flex flex-wrap items-center gap-2.5 pt-1.5 text-[12px] sm:text-[12.5px] font-sans">
+              <div className="inline-flex items-center gap-1.5 px-3 py-1 rounded-full bg-[#200705]/60 border border-[#d8a83e]/30 text-[#fff9ec] backdrop-blur-[2px]">
+                <span>🇮🇳</span>
+                <span className="font-medium text-[#f8f0df]">
+                  {lang === 'en' ? 'All-India Delivery Available' : 'ದೇಶಾದ್ಯಂತ ಡೆಲಿವರಿ ಲಭ್ಯವಿದೆ'}
+                </span>
+              </div>
+
+              <a
+                href="https://wa.me/919980819355?text=Hello%20Nalina's%20Kai%20Ruchi,%20I%20would%20like%20to%20enquire%20about%20a%20bulk%20order%20for%20an%20event/function."
+                target="_blank"
+                rel="noopener noreferrer"
+                className="inline-flex items-center gap-1.5 px-3 py-1 rounded-full bg-[#d8a83e]/20 hover:bg-[#d8a83e]/30 border border-[#d8a83e]/50 text-[#fff9ec] transition-all hover:scale-102"
+                title="Click to enquire for Bulk Orders on WhatsApp"
+              >
+                <span>📦</span>
+                <span className="font-semibold text-[#d8a83e]">
+                  {lang === 'en' ? 'Bulk Orders Accepted' : 'ಸಗಟು ಆರ್ಡರ್ ಸ್ವೀಕರಿಸಲಾಗುವುದು'}
+                </span>
+                <span className="text-[10px] text-[#d8a83e] opacity-80">↗</span>
+              </a>
+            </div>
           </div>
 
           {/* RIGHT SIDE: Decorative hand-drawn twig & handwritten quote (Visible on Desktop) */}

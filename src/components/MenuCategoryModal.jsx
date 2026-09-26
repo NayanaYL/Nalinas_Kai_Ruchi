@@ -1,10 +1,10 @@
 import React, { useState } from 'react';
-import { X, MessageCircle, Check, Info } from 'lucide-react';
+import { X, MessageCircle } from 'lucide-react';
 
 export const MenuCategoryModal = ({ category, lang, onClose }) => {
-  if (!category) return null;
-
   const [selectedWeights, setSelectedWeights] = useState({});
+
+  if (!category) return null;
 
   const handleWeightSelect = (itemId, weight) => {
     setSelectedWeights(prev => ({ ...prev, [itemId]: weight }));
@@ -83,12 +83,6 @@ Please confirm availability and dispatch details.`;
                   <p className="text-[12.5px] text-[#6d5142] font-sans leading-relaxed">
                     {item.description}
                   </p>
-
-                  {/* Ingredients note */}
-                  <div className="text-[11px] text-[#8c6f5d] flex items-start gap-1 pt-1">
-                    <Info className="w-3.5 h-3.5 flex-shrink-0 mt-0.5" />
-                    <span>Ingredients: {item.ingredients}</span>
-                  </div>
 
                   {/* Weight Selector Pills */}
                   <div className="flex items-center gap-2 pt-2">

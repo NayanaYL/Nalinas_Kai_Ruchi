@@ -8,59 +8,64 @@ export const MENU_CATEGORIES = [
     description: "Authentic, freshly ground spice blends crafted with traditional Mysore & Bengaluru Brahmin heirloom recipes. Sun-dried spices, slow-roasted to perfection with no added colors or artificial preservatives.",
     items: [
       {
-        id: "bisi-bele-bath",
-        name: "Bisi Bele Bath Powder",
-        kannadaName: "ಬಿಸಿ ಬೇಳೆ ಬಾತ್ ಪುಡಿ",
-        description: "The crown jewel of Karnataka cuisine. Aromatic blend of roasted coriander, cinnamon, marathi moggu, and byadagi chillies.",
-        weights: ["100g", "250g", "500g"],
-        prices: { "100g": 90, "250g": 210, "500g": 400 },
-        badge: "Bestseller",
-        shelfLife: "6 Months",
-        ingredients: "Byadagi Chilli, Coriander Seeds, Bengal Gram, Cinnamon, Cloves, Kapok Buds (Marathi Moggu), Fenugreek, Cumin"
-      },
-      {
-        id: "puliogare-gojju-pudi",
-        name: "Puliogare Mix / Pudi",
-        kannadaName: "ಪುಳಿಯೋಗರೆ ಗೊಜ್ಜು / ಪುಡಿ",
-        description: "Temple-style authentic tangy and spicy tamarind rice mix with nutty crunch and aromatic sesame aroma.",
-        weights: ["100g", "250g", "500g"],
-        prices: { "100g": 85, "250g": 200, "500g": 380 },
-        badge: "Temple Style",
-        shelfLife: "6 Months",
-        ingredients: "Tamarind, Jaggery, Byadagi Chilli, White Sesame, Groundnuts, Mustard, Fenugreek, Asafoetida, Curry Leaves"
-      },
-      {
         id: "vangi-bath-powder",
         name: "Vangi Bath Powder",
         kannadaName: "ವಾಂಗಿ ಬಾತ್ ಪುಡಿ",
         description: "Traditional spice powder for authentic brinjal / capsicum rice, infused with star anise and dry coconut.",
-        weights: ["100g", "250g", "500g"],
-        prices: { "100g": 85, "250g": 200, "500g": 380 },
+        weights: ["100g", "200g", "500g"],
+        prices: { "100g": 95, "200g": 179, "500g": 439 },
         badge: "Traditional",
         shelfLife: "6 Months",
-        ingredients: "Coriander, Byadagi Chilli, Dry Coconut (Kobbari), Cloves, Cinnamon, Chana Dal, Urad Dal, Asafoetida"
       },
       {
-        id: "mysore-rasam-powder",
-        name: "Rasam Powder (Mysuru Saaru)",
-        kannadaName: "ರಸಂ ಪುಡಿ (ಮೈಸೂರು ಸಾರು)",
-        description: "Soul-soothing traditional rasam powder. Mildly spiced, fragrant with roasted cumin, pepper and curry leaves.",
-        weights: ["100g", "250g", "500g"],
-        prices: { "100g": 80, "250g": 190, "500g": 360 },
-        badge: "Everyday Staple",
-        shelfLife: "6 Months",
-        ingredients: "Coriander, Cumin, Black Pepper, Red Chilli, Turmeric, Fenugreek, Mustard, Curry Leaves"
+        id: "bisi-bele-bath",
+        name: "Bisi Bele Bath Powder",
+        kannadaName: "ಬಿಸಿ ಬೇಳೆ ಬಾತ್ ಪುಡಿ",
+        description: "The crown jewel of Karnataka cuisine. Aromatic blend of roasted coriander, cinnamon, marathi moggu, and byadagi chillies.",
+        weights: ["100g", "200g", "500g"],
+        prices: { "100g": 95, "200g": 198, "500g": 449 },
+        badge: "Bestseller",
+        shelfLife: "6 Months"
+      },
+      {
+        id: "puliogare-powder",
+        name: "Puliogare Powder",
+        kannadaName: "ಪುಳಿಯೋಗರೆ ಪುಡಿ",
+        description: "Temple-style authentic tangy and spicy tamarind rice dry spice mix with nutty sesame aroma.",
+        weights: ["100g", "200g", "500g"],
+        prices: { "100g": 92, "200g": 183, "500g": 410 },
+        badge: "Temple Style",
+        shelfLife: "6 Months"
+      },
+      {
+        id: "puliogare-gojju",
+        name: "Puliogare Gojju",
+        kannadaName: "ಪುಳಿಯೋಗರೆ ಗೊಜ್ಜು",
+        description: "Slow-simmered thick tamarind paste cooked with organic jaggery, roasted spices, peanuts and sesame oil.",
+        weights: ["100g", "200g", "500g"],
+        prices: { "100g": 89, "200g": 176, "500g": 389 },
+        badge: "Instant Mix",
+        shelfLife: "6 Months"
       },
       {
         id: "sambar-huli-pudi",
-        name: "Sambar / Huli Pudi",
-        kannadaName: "ಸಾಂಬಾರ್ / ಹುಳಿ ಪುಡಿ",
+        name: "Sambar Pudi / Huli Pudi",
+        kannadaName: "ಸಾಂಬಾರ್ ಪುಡಿ / ಹುಳಿ ಪುಡಿ",
         description: "Authentic Brahmin style sambar powder made without onion or garlic. Gives rich aroma and golden color to your dal.",
-        weights: ["100g", "250g", "500g"],
-        prices: { "100g": 85, "250g": 200, "500g": 380 },
+        weights: ["100g", "200g", "500g"],
+        prices: { "100g": 94, "200g": 179, "500g": 410 },
         badge: "Pure Brahmin Style",
-        shelfLife: "6 Months",
-        ingredients: "Coriander Seeds, Byadagi Chilli, Chana Dal, Toor Dal, Fenugreek, Turmeric, Hing, Curry Leaves"
+        shelfLife: "6 Months"
+      },
+      {
+        id: "mysore-rasam-powder",
+        name: "Rasam Powder / Saarina Pudi",
+        kannadaName: "ರಸಂ ಪುಡಿ / ಸಾರಿನ ಪುಡಿ",
+        description: "Soul-soothing traditional rasam powder. Mildly spiced, fragrant with roasted cumin, pepper and curry leaves.",
+        weights: ["100g", "200g", "500g"],
+        prices: { "100g": 93, "200g": 170, "500g": 399 },
+        badge: "Everyday Staple",
+        shelfLife: "6 Months"
       }
     ]
   },
@@ -73,70 +78,66 @@ export const MENU_CATEGORIES = [
     description: "The soul of a South Indian breakfast. Sprinkle over hot idlis, crispy dosas, akki rotti, or mix with steaming hot rice and pure cow ghee.",
     items: [
       {
-        id: "kadale-chutney-pudi",
-        name: "Kadale Chutney Pudi",
-        kannadaName: "ಕಡಲೆ ಚಟ್ನಿ ಪುಡಿ",
+        
+        id: "kadale-bele-chutney-pudi",
+        name: "Kadale Bele Chutney Pudi",
+        kannadaName: "ಕಡಲೆ ಬೇಳೆ ಚಟ್ನಿ ಪುಡಿ",
         description: "Roasted gram dal chutney powder with crispy curry leaves, dry coconut, and a touch of organic jaggery.",
-        weights: ["100g", "250g", "500g"],
-        prices: { "100g": 75, "250g": 180, "500g": 340 },
+        weights: ["100g", "200g", "500g"],
+        prices: { "100g": 96, "200g": 180, "500g": 400 },
         badge: "All-Time Favourite",
-        shelfLife: "4 Months",
-        ingredients: "Roasted Bengal Gram (Putani), Dry Coconut, Red Chilli, Tamarind, Jaggery, Salt, Curry Leaves, Hing"
+        shelfLife: "4 Months"
       },
       {
         id: "shenga-chutney-pudi",
         name: "Shenga (Peanut) Chutney Pudi",
         kannadaName: "ಶೇಂಗಾ ಚಟ್ನಿ ಪುಡಿ",
         description: "North Karnataka style coarse roasted peanut powder. Nutty, crunchy, and packed with plant protein.",
-        weights: ["100g", "250g", "500g"],
-        prices: { "100g": 80, "250g": 190, "500g": 360 },
+        weights: ["100g", "200g", "500g"],
+        prices: { "100g": 95, "200g": 175, "500g": 410 },
         badge: "High Protein",
-        shelfLife: "4 Months",
-        ingredients: "Roasted Peanuts, Red Chilli, Cumin, Tamarind, Jaggery, Garlic (optional), Salt"
+        shelfLife: "4 Months"
       },
       {
         id: "karibevina-chutney-pudi",
         name: "Karibevina (Curry Leaf) Pudi",
         kannadaName: "ಕರಿಬೇವಿನ ಚಟ್ನಿ ಪುಡಿ",
         description: "Hand-picked, shade-dried fresh curry leaves roasted with lentils. Extremely rich in iron and hair health benefits.",
-        weights: ["100g", "250g", "500g"],
-        prices: { "100g": 85, "250g": 200, "500g": 380 },
+        weights: ["100g", "200g", "500g"],
+        prices: { "100g": 94, "200g": 180, "500g": 410 },
         badge: "Health Special",
-        shelfLife: "4 Months",
-        ingredients: "Fresh Country Curry Leaves, Urad Dal, Chana Dal, Red Chilli, Tamarind, Hing, Cumin, Salt"
+        shelfLife: "4 Months"
       },
       {
-        id: "nugge-soppina-pudi",
-        name: "Nugge Soppina (Moringa) Pudi",
-        kannadaName: "ನುಗ್ಗೆ ಸೊಪ್ಪಿನ ಪುಡಿ",
+      
+        id: "moringa-chutney-pudi",
+        name: "Moringa Chutney Pudi",
+        kannadaName: "ನುಗ್ಗೆ ಸೊಪ್ಪಿನ ಚಟ್ನಿ ಪುಡಿ",
         description: "Nutritious drumstick leaf (moringa) chutney powder roasted with sesame and lentils. A modern superfood prepared traditionally.",
-        weights: ["100g", "250g", "500g"],
-        prices: { "100g": 90, "250g": 215, "500g": 410 },
+        weights: ["100g", "200g", "500g"],
+        prices: { "100g": 100, "200g": 195, "500g": 460 },
         badge: "Immunity Booster",
-        shelfLife: "4 Months",
-        ingredients: "Organic Moringa Leaves, Chana Dal, White Sesame, Red Chilli, Tamarind, Jaggery, Salt"
+        shelfLife: "4 Months"
       },
       {
         id: "hurali-kaalu-pudi",
         name: "Hurali Kaalu (Horsegram) Pudi",
         kannadaName: "ಹುರಳಿ ಕಾಳು ಪುಡಿ",
         description: "Hearty roasted horsegram powder known for warmth, digestion, and authentic rustic Malnad flavor.",
-        weights: ["100g", "250g", "500g"],
-        prices: { "100g": 80, "250g": 190, "500g": 360 },
+        weights: ["100g", "200g", "500g"],
+        prices: { "100g": 93, "200g": 175, "500g": 410 },
         badge: "Malnad Heritage",
-        shelfLife: "4 Months",
-        ingredients: "Roasted Horsegram, Pepper, Cumin, Red Chilli, Dry Coconut, Tamarind, Salt"
+        shelfLife: "4 Months"
       },
       {
         id: "thogari-bele-pudi",
         name: "Thogari Bele Pudi (Paruppu Podi)",
         kannadaName: "ತೊಗರಿ ಬೇಳೆ ಪುಡಿ",
         description: "Golden roasted toor dal and pepper powder. Melts divinely into hot rice topped with a spoonful of melted ghee.",
-        weights: ["100g", "250g", "500g"],
-        prices: { "100g": 80, "250g": 190, "500g": 360 },
+        weights: ["100g", "200g", "500g"],
+        prices: { "100g": 95, "200g": 189, "500g": 430 },
         badge: "Comfort Food",
-        shelfLife: "4 Months",
-        ingredients: "Toor Dal, Roasted Gram, Black Pepper, Cumin, Red Chilli, Hing, Salt"
+        shelfLife: "4 Months"
       }
     ]
   },
@@ -150,69 +151,83 @@ export const MENU_CATEGORIES = [
     items: [
       {
         id: "kai-chakkuli",
-        name: "Traditional Butter Chakkuli",
-        kannadaName: "ಬೆಣ್ಣೆ ಚಕ್ಕುಲಿ",
+        name: "Chakkuli",
+        kannadaName: "ಚಕ್ಕುಲಿ",
         description: "Crunchy spiral delight made with rice flour, roasted urad dal, cumin, sesame and rich country butter.",
-        weights: ["250g", "500g", "1kg"],
-        prices: { "250g": 130, "500g": 250, "1kg": 480 },
+        weights: ["100g", "200g", "500g"],
+        prices: { "100g": 90, "200g": 170, "500g": 400 },
         badge: "Melt In Mouth",
-        shelfLife: "45 Days",
-        ingredients: "Rice Flour, Urad Dal Flour, Country Butter, Sesame, Cumin, Salt, Cold Pressed Oil"
+        shelfLife: "45 Days"
       },
       {
         id: "nippattu",
         name: "Crispy Nippattu",
         kannadaName: "ಗರಿಗರಿ ನಿಪ್ಪಟ್ಟು",
         description: "Spicy Karnataka rice crisps studded with roasted peanuts, fried gram, curry leaves, and green chillies.",
-        weights: ["250g", "500g", "1kg"],
-        prices: { "250g": 130, "500g": 250, "1kg": 480 },
+        weights: ["100g", "200g", "500g"],
+        prices: { "100g": 90, "200g": 170, "500g": 400 },
         badge: "Evening Tea Classic",
-        shelfLife: "45 Days",
-        ingredients: "Rice Flour, Roasted Peanuts, Roasted Gram, Onion, Green Chilli, Curry Leaves, Salt, Oil"
+        shelfLife: "45 Days"
       },
       {
         id: "kodubale",
-        name: "Karnataka Kodubale",
-        kannadaName: "ಮೈಸೂರು ಕೋಡುಬಳೆ",
+        name: "Kodubale",
+        kannadaName: "ಕೋಡುಬಳೆ",
         description: "Ring-shaped savoury snack with the distinctive crunch of roasted rice flour, coconut and red chilli.",
-        weights: ["250g", "500g", "1kg"],
-        prices: { "250g": 130, "250g": 250, "1kg": 480 },
+        weights: ["100g", "200g", "500g"],
+        prices: { "100g": 90, "200g": 170, "500g": 400 },
         badge: "Crispy Delight",
-        shelfLife: "45 Days",
-        ingredients: "Rice Flour, Maida, Fresh Grated Coconut, Red Chilli Paste, Cumin, Hing, Hot Oil"
+        shelfLife: "45 Days"
       },
       {
         id: "bele-holige",
         name: "Bele Holige (Dal Obbattu)",
         kannadaName: "ಬೇಳೆ ಹೋಳಿಗೆ (ದಾಲ್ ಒಬ್ಬಟ್ಟು)",
         description: "Delicate sweet flatbread filled with sweet chana dal and organic jaggery puran, scented with green cardamom.",
-        weights: ["Pack of 5", "Pack of 10"],
-        prices: { "Pack of 5": 175, "Pack of 10": 340 },
+        weights: ["Pack of 1","Pack of 5", "Pack of 10"],
+        prices: { "Pack of 1":42, "Pack of 5": 210, "Pack of 10": 400 },
         badge: "Festive Heirloom",
-        shelfLife: "4 Days (Refrigerated 10 Days)",
-        ingredients: "Chana Dal, Organic Jaggery, Cardamom, Nutmeg, Maida/Chiroti Rava, Pure Ghee"
+        shelfLife: "4 Days (Refrigerated 10 Days)"
       },
       {
         id: "kaayi-holige",
         name: "Kaayi Holige (Coconut Obbattu)",
         kannadaName: "ಕಾಯಿ ಹೋಳಿಗೆ (ಕೊಬ್ಬರಿ ಒಬ್ಬಟ್ಟು)",
         description: "Fresh grated coconut cooked with organic jaggery, rolled into soft translucent layers and toasted with ghee.",
-        weights: ["Pack of 5", "Pack of 10"],
-        prices: { "Pack of 5": 190, "Pack of 10": 370 },
+        weights: ["Pack of 1","Pack of 5", "Pack of 10"],
+        prices: { "Pack of 1":36,"Pack of 5": 180, "Pack of 10": 350 },
         badge: "Melt In Mouth",
-        shelfLife: "4 Days (Refrigerated 8 Days)",
-        ingredients: "Fresh Grated Coconut, Jaggery, Cardamom, Pure Ghee, Chiroti Rava"
+        shelfLife: "4 Days (Refrigerated 8 Days)"
       },
       {
         id: "besan-laddu",
         name: "Shuddh Ghee Besan Laddu",
         kannadaName: "ಶುದ್ಧ ತುಪ್ಪದ ಬೇಸನ್ ಲಾಡು",
         description: "Slow-roasted gram flour in authentic desi cow ghee, fragrant with green cardamom, cashews and golden raisins.",
-        weights: ["250g (6 pcs)", "500g (12 pcs)"],
-        prices: { "250g (6 pcs)": 180, "500g (12 pcs)": 350 },
+        weights: ["50g", "100g", "200g", "500g"],
+        prices: { "50g": 50, "100g": 99, "200g": 199, "500g": 399 },
         badge: "Pure Cow Ghee",
-        shelfLife: "30 Days",
-        ingredients: "Gram Flour (Besan), Pure Cow Desi Ghee, Khandsari Sugar, Cardamom, Cashews, Raisins"
+        shelfLife: "30 Days"
+      },
+      {
+        id: "shankara-poli",
+        name: "Shankara Poli",
+        kannadaName: "ಶಂಕರ ಪೋಲಿ",
+        description: "Traditional sweet flatbread layered with aromatic coconut and chana dal filling, gently roasted in pure ghee.",
+        weights: ["100g", "200g", "500g"],
+        prices: { "100g": 60, "200g": 120, "500g": 270 },
+        badge: "Festive Favourite",
+        shelfLife: "30 Days"
+      },
+      {
+        id: "kharjikaayi",
+        name: "Kharjikaayi",
+        kannadaName: "ಖರ್ಜಿಕಾಯಿ",
+        description: "Classic Karnataka sweet prepared with a rich, handcrafted filling and traditional ghee-roasted finish.",
+        weights: ["100g", "200g", "500g"],
+        prices: { "100g": 60, "200g": 120, "500g": 270 },
+        badge: "Heritage Sweet",
+        shelfLife: "15 Days"
       }
     ]
   }
