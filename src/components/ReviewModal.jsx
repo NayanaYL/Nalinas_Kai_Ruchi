@@ -9,7 +9,7 @@ const sanitizeText = (value) =>
 
 export const ReviewModal = ({ isOpen, onClose, onAddReview, lang }) => {
   const [name, setName] = useState('');
-  const [location, setLocation] = useState('');
+  const [location, setLocation] = useState('Bengaluru, Karnataka');
   const [product, setProduct] = useState('Bisi Bele Bath Powder');
   const [rating, setRating] = useState(5);
   const [comment, setComment] = useState('');
@@ -193,7 +193,7 @@ Thank you for the authentic traditional food!`;
                 type="text"
                 value={location}
                 onChange={(e) => setLocation(e.target.value)}
-                placeholder="e.g. Malleshwaram, Bengaluru / Mysuru / Mumbai"
+                placeholder="e.g. Bengaluru, Karnataka"
                 className="w-full px-3 py-2 bg-white border border-[#d8dbc4] rounded text-[13.5px] text-[#2b1710] focus:outline-none focus:border-[#5a0905]"
               />
             </div>

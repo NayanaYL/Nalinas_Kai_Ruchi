@@ -4,7 +4,7 @@
 // {
 //   id: "rev-1",
 //   name: "Customer Name",
-//   location: "City, State",
+//   location: "Bengaluru, Karnataka",
 //   rating: 5,                          // 1–5
 //   date: "September 2026",
 //   product: "Product Name",            // optional
