@@ -22,7 +22,7 @@ export const Footer = ({ lang, setLang }) => {
     <footer className="w-full bg-[#3a0705] text-[#f8f0df] pt-8 pb-7 border-t border-[#d8a83e]/20">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         
-        <div className="flex flex-col md:flex-row items-center justify-between gap-6 pb-6">
+        <div className="flex flex-col lg:flex-row items-center justify-between gap-6 pb-6">
           
           {/* LEFT: Logo & Brand */}
           <div className="flex items-center gap-3 text-left">
@@ -44,20 +44,20 @@ export const Footer = ({ lang, setLang }) => {
           </div>
 
           {/* CENTER: Navigation Links & Language */}
-          <div className="flex flex-wrap items-center justify-center gap-5 text-[13.5px] font-sans">
-            <button onClick={() => scrollTo('home')} className="hover:text-[#d8a83e] transition-colors">
+          <div className="flex flex-wrap items-center justify-center gap-x-4 sm:gap-x-5 gap-y-1 text-[13.5px] font-sans max-w-full">
+            <button onClick={() => scrollTo('home')} className="min-h-10 px-1 hover:text-[#d8a83e] transition-colors">
               Home
             </button>
-            <button onClick={() => scrollTo('story')} className="hover:text-[#d8a83e] transition-colors">
+            <button onClick={() => scrollTo('story')} className="min-h-10 px-1 hover:text-[#d8a83e] transition-colors">
               Our Story
             </button>
-            <button onClick={() => scrollTo('menu')} className="hover:text-[#d8a83e] transition-colors">
+            <button onClick={() => scrollTo('menu')} className="min-h-10 px-1 hover:text-[#d8a83e] transition-colors">
               Menu
             </button>
-            <button onClick={() => scrollTo('reviews')} className="hover:text-[#d8a83e] transition-colors">
+            <button onClick={() => scrollTo('reviews')} className="min-h-10 px-1 hover:text-[#d8a83e] transition-colors">
               {lang === 'en' ? 'Reviews' : 'ಅನಿಸಿಕೆಗಳು'}
             </button>
-            <button onClick={() => scrollTo('order')} className="hover:text-[#d8a83e] transition-colors">
+            <button onClick={() => scrollTo('order')} className="min-h-10 px-1 hover:text-[#d8a83e] transition-colors">
               Contact
             </button>
 
@@ -65,14 +65,14 @@ export const Footer = ({ lang, setLang }) => {
             <div className="border border-[#d8a83e]/40 rounded-full px-2 py-0.5 text-[11px]">
               <button 
                 onClick={() => setLang('en')} 
-                className={lang === 'en' ? 'text-[#d8a83e] font-semibold' : 'text-white/70'}
+                className={`inline-flex min-h-8 min-w-8 items-center justify-center ${lang === 'en' ? 'text-[#d8a83e] font-semibold' : 'text-white/70'}`}
               >
                 EN
               </button>
               <span className="mx-1 text-[#d8a83e]/40">|</span>
               <button 
                 onClick={() => setLang('kn')} 
-                className={lang === 'kn' ? 'text-[#d8a83e] font-semibold' : 'text-white/70'}
+                className={`inline-flex min-h-8 min-w-8 items-center justify-center ${lang === 'kn' ? 'text-[#d8a83e] font-semibold' : 'text-white/70'}`}
               >
                 ಕನ್ನಡ
               </button>
@@ -86,7 +86,7 @@ export const Footer = ({ lang, setLang }) => {
               target="_blank"
               rel="noopener noreferrer"
               aria-label="Instagram"
-              className="text-[#f8f0df] hover:text-[#d8a83e] transition-colors"
+              className="inline-flex min-h-10 min-w-10 items-center justify-center text-[#f8f0df] hover:text-[#d8a83e] transition-colors"
             >
               <InstagramIcon className="w-5 h-5" />
             </a>
@@ -95,7 +95,7 @@ export const Footer = ({ lang, setLang }) => {
               target="_blank"
               rel="noopener noreferrer"
               aria-label="WhatsApp"
-              className="text-[#f8f0df] hover:text-[#d8a83e] transition-colors"
+              className="inline-flex min-h-10 min-w-10 items-center justify-center text-[#f8f0df] hover:text-[#d8a83e] transition-colors"
             >
               <MessageCircle className="w-5 h-5" />
             </a>
@@ -107,7 +107,7 @@ export const Footer = ({ lang, setLang }) => {
         </div>
 
         {/* Delivery & Bulk Orders Note */}
-        <div className="py-2.5 my-2 border-t border-b border-[#d8a83e]/15 text-[12px] text-[#f8f0df]/85 flex flex-wrap items-center justify-center gap-4 sm:gap-8">
+        <div className="py-2.5 my-2 border-t border-b border-[#d8a83e]/15 text-[12px] text-[#f8f0df]/85 flex flex-wrap items-center justify-center gap-x-4 gap-y-2 sm:gap-8 text-center">
           <span className="flex items-center gap-1.5">
             <span>🇮🇳</span>
             <strong>All-India Delivery Available</strong>
@@ -125,7 +125,7 @@ export const Footer = ({ lang, setLang }) => {
         </div>
 
         {/* BOTTOM: Copyright & Heritage Tagline */}
-        <div className="pt-3 flex flex-col sm:flex-row items-center justify-between text-[11.5px] text-[#f8f0df]/70 gap-2">
+        <div className="pt-3 flex flex-col sm:flex-row items-center justify-between text-[11.5px] text-[#f8f0df]/70 gap-2 text-center sm:text-left">
           <div>
             © 2025 Nalina's Kai Ruchi. All rights reserved.
           </div>

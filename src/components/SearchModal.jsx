@@ -35,11 +35,12 @@ export const SearchModal = ({ isOpen, onClose, onSelectCategory }) => {
             value={query}
             onChange={(e) => setQuery(e.target.value)}
             placeholder="Search Bisi Bele Bath, Chutney Pudi, Holige, Chakkuli..."
-            className="flex-1 bg-transparent text-[#fff9ec] placeholder-[#f8f0df]/60 font-sans text-[15px] focus:outline-none"
+            className="min-w-0 flex-1 bg-transparent text-[#fff9ec] placeholder-[#f8f0df]/60 font-sans text-[15px] focus:outline-none"
           />
           <button
             onClick={onClose}
-            className="p-1 text-[#f8f0df] hover:text-[#d8a83e] rounded-full"
+            aria-label="Close search"
+            className="inline-flex min-h-10 min-w-10 items-center justify-center rounded-full text-[#f8f0df] hover:text-[#d8a83e]"
           >
             <X className="w-5 h-5" />
           </button>
@@ -54,9 +55,9 @@ export const SearchModal = ({ isOpen, onClose, onSelectCategory }) => {
             </div>
           ) : (
             filteredItems.map(item => (
-              <div key={item.id} className="pt-3 first:pt-0 flex items-center justify-between gap-4">
-                <div>
-                  <div className="flex items-center gap-2">
+              <div key={item.id} className="pt-3 first:pt-0 flex flex-col sm:flex-row sm:items-center justify-between gap-3 min-w-0">
+                <div className="min-w-0">
+                  <div className="flex flex-wrap items-center gap-2">
                     <span className="font-serif font-bold text-[15px] text-[#2b1710]">{item.name}</span>
                     <span className="font-['Noto_Serif_Kannada',serif] text-[13px] text-[#6d5142]">({item.kannadaName})</span>
                   </div>
@@ -65,12 +66,12 @@ export const SearchModal = ({ isOpen, onClose, onSelectCategory }) => {
                   </div>
                 </div>
 
-                <div className="flex items-center gap-2">
+                <div className="flex items-center gap-2 shrink-0">
                   <a
                     href={`https://wa.me/919980819355?text=Hello%20Nalina's%20Kai%20Ruchi,%20I%20would%20like%20to%20order%20${encodeURIComponent(item.name)}.`}
                     target="_blank"
                     rel="noopener noreferrer"
-                    className="inline-flex items-center gap-1 bg-[#25D366] text-white px-2.5 py-1 rounded text-[11.5px] font-semibold"
+                    className="inline-flex min-h-10 items-center justify-center gap-1 bg-[#25D366] text-white px-3 py-1.5 rounded text-[11.5px] font-semibold"
                   >
                     <MessageCircle className="w-3 h-3 fill-current" />
                     <span>Order</span>
@@ -80,7 +81,7 @@ export const SearchModal = ({ isOpen, onClose, onSelectCategory }) => {
                       onClose();
                       onSelectCategory(item.category);
                     }}
-                    className="p-1 text-[#5a0905] hover:text-[#d8a83e]"
+                    className="inline-flex min-h-10 min-w-10 items-center justify-center text-[#5a0905] hover:text-[#d8a83e]"
                     title="View Category"
                   >
                     <ArrowRight className="w-4 h-4" />
@@ -91,9 +92,9 @@ export const SearchModal = ({ isOpen, onClose, onSelectCategory }) => {
           )}
         </div>
 
-        <div className="bg-[#fbf7ee] px-4 py-2.5 border-t border-[#e8dbc4] text-[11.5px] text-[#6d5142] flex justify-between items-center">
-          <span>Popular: Bisi Bele Bath • Shenga Pudi • Butter Chakkuli • Bele Holige</span>
-          <button onClick={onClose} className="font-semibold text-[#5a0905]">Esc to close</button>
+        <div className="bg-[#fbf7ee] px-4 py-2.5 border-t border-[#e8dbc4] text-[11.5px] text-[#6d5142] flex flex-col sm:flex-row justify-between items-start sm:items-center gap-2">
+          <span className="break-words">Popular: Bisi Bele Bath • Shenga Pudi • Butter Chakkuli • Bele Holige</span>
+          <button onClick={onClose} className="min-h-10 px-2 font-semibold text-[#5a0905]">Esc to close</button>
         </div>
       </div>
     </div>

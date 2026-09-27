@@ -10,11 +10,11 @@ export const OrderCTA = ({ lang }) => {
         <div className="grid grid-cols-1 md:grid-cols-2 gap-4 sm:gap-6">
           
           {/* Card 1: All-India Delivery */}
-          <div className="bg-[#fffdf9] border border-[#e8dbc4] rounded-[6px] p-5 sm:p-6 shadow-sm flex items-start gap-4 text-left transition-all hover:border-[#d8a83e]/70">
+          <div className="bg-[#fffdf9] border border-[#e8dbc4] rounded-[6px] p-4 sm:p-6 shadow-sm flex items-start gap-3 sm:gap-4 text-left transition-all hover:border-[#d8a83e]/70 min-w-0">
             <div className="w-12 h-12 rounded-full bg-[#4a0d09] text-[#d8a83e] flex items-center justify-center flex-shrink-0 shadow-sm mt-0.5">
               <span className="text-2xl">🇮🇳</span>
             </div>
-            <div className="space-y-1 flex-1">
+            <div className="space-y-1 flex-1 min-w-0">
               <div className="flex items-center gap-2 flex-wrap">
                 <h3 className="font-serif text-[17.5px] sm:text-[18.5px] font-bold text-[#2b1710]">
                   {lang === 'en' ? 'All-India Delivery Available' : 'ದೇಶಾದ್ಯಂತ ಡೆಲಿವರಿ ಲಭ್ಯವಿದೆ'}
@@ -36,12 +36,12 @@ export const OrderCTA = ({ lang }) => {
             href="https://wa.me/919980819355?text=Hello%20Nalina's%20Kai%20Ruchi,%20I%20would%20like%20to%20enquire%20about%20a%20bulk%20order%20for%20an%20event/function."
             target="_blank"
             rel="noopener noreferrer"
-            className="group bg-[#fffdf9] border border-[#e8dbc4] hover:border-[#d8a83e] rounded-[6px] p-5 sm:p-6 shadow-sm hover:shadow-md transition-all flex items-start gap-4 text-left"
+            className="group bg-[#fffdf9] border border-[#e8dbc4] hover:border-[#d8a83e] rounded-[6px] p-4 sm:p-6 shadow-sm hover:shadow-md transition-all flex items-start gap-3 sm:gap-4 text-left min-w-0"
           >
             <div className="w-12 h-12 rounded-full bg-[#35170d] group-hover:bg-[#5a0905] text-[#d8a83e] flex items-center justify-center flex-shrink-0 shadow-sm transition-colors mt-0.5">
               <Package className="w-6 h-6 text-[#d8a83e]" />
             </div>
-            <div className="space-y-1 flex-1">
+            <div className="space-y-1 flex-1 min-w-0">
               <div className="flex items-center gap-2 flex-wrap">
                 <h3 className="font-serif text-[17.5px] sm:text-[18.5px] font-bold text-[#2b1710] group-hover:text-[#5a0905] transition-colors">
                   {lang === 'en' ? 'Bulk Orders Accepted' : 'ಸಗಟು ಆರ್ಡರ್ ಸ್ವೀಕರಿಸಲಾಗುವುದು'}
@@ -55,7 +55,7 @@ export const OrderCTA = ({ lang }) => {
                   ? 'Planning an event, function, festival, or special occasion? We accept bulk orders with customized preparation and fresh delivery.'
                   : 'ಹಬ್ಬ, ಮದುವೆ, ಉಪನಯನ, ಪೂಜೆ ಹಾಗೂ ವಿಶೇಷ ಸಮಾರಂಭಗಳಿಗೆ ಶುದ್ಧ ಸಾತ್ವಿಕ ಅಡುಗೆ ಮತ್ತು ತಿಂಡಿಗಳ ಸಗಟು ಆರ್ಡರ್ ನೀಡಬಹುದು.'}
               </p>
-              <div className="pt-1.5 flex items-center gap-1.5 text-[12.5px] font-semibold text-[#5a0905] group-hover:text-[#d8a83e] transition-colors">
+              <div className="pt-1.5 flex flex-wrap items-center gap-1.5 text-[12.5px] font-semibold text-[#5a0905] group-hover:text-[#d8a83e] transition-colors">
                 <MessageCircle className="w-3.5 h-3.5 fill-current text-[#25D366]" />
                 <span>Enquire for Bulk Orders on WhatsApp</span>
                 <ArrowRight className="w-3.5 h-3.5 transition-transform duration-200 group-hover:translate-x-1" />
@@ -66,7 +66,7 @@ export const OrderCTA = ({ lang }) => {
         </div>
 
         {/* BOTTOM ROW: Order Contact Details Strip */}
-        <div className="pt-6 border-t border-[#e8dbc4]/70 flex flex-col lg:flex-row items-center justify-between gap-6 lg:gap-8">
+        <div className="pt-6 border-t border-[#e8dbc4]/70 flex flex-col lg:flex-row items-start lg:items-center justify-between gap-6 lg:gap-8">
           
           {/* LEFT: Heading & Description */}
           <div className="text-left w-full lg:w-auto space-y-1">
@@ -84,7 +84,7 @@ export const OrderCTA = ({ lang }) => {
           </div>
 
           {/* MIDDLE: Phone and Location */}
-          <div className="flex flex-col sm:flex-row items-start sm:items-center gap-6 sm:gap-10 w-full lg:w-auto">
+          <div className="flex flex-col sm:flex-row items-start sm:items-center gap-4 sm:gap-8 w-full lg:w-auto min-w-0">
             
             {/* Phone Item */}
             <a 
@@ -134,12 +134,12 @@ export const OrderCTA = ({ lang }) => {
           </div>
 
           {/* RIGHT: Brush Stamp Badge "Support Homemade Support Local ♡" */}
-          <div className="flex-shrink-0">
+          <div className="flex-shrink-0 w-full lg:w-auto flex justify-start lg:justify-end">
             <div className="relative transform rotate-[-2deg] hover:rotate-0 transition-transform duration-200">
               <img
                 src="/images/support-local-badge.png"
                 alt="Support Homemade Support Local"
-                className="h-14 sm:h-16 w-auto object-contain drop-shadow"
+                className="h-14 sm:h-16 w-auto max-w-[180px] object-contain drop-shadow"
               />
             </div>
           </div>

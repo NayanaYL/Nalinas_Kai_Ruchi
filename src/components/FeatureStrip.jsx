@@ -36,21 +36,21 @@ export const FeatureStrip = () => {
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         
         {/* Five evenly spaced feature items */}
-        <div className="grid grid-cols-2 md:grid-cols-5 gap-4 md:gap-0 items-center justify-between">
+        <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-5 gap-4 md:gap-3 lg:gap-0 items-center justify-between">
           {features.map((item, index) => (
             <div 
               key={index} 
-              className={`flex flex-col items-center text-center px-3 py-2 transition-transform duration-200 hover:-translate-y-0.5 ${
-                index !== features.length - 1 ? 'md:border-r md:border-[#e2d2ba]/80' : ''
+              className={`flex flex-col items-center text-center px-2 sm:px-3 py-2 transition-transform duration-200 hover:-translate-y-0.5 ${
+                index !== features.length - 1 ? 'lg:border-r lg:border-[#e2d2ba]/80' : 'feature-last'
               }`}
             >
               <div className="mb-2 text-[#5a0905]">
                 {item.icon}
               </div>
-              <h3 className="font-serif text-[14.5px] sm:text-[15.5px] font-semibold text-[#2b1710] leading-snug">
+              <h3 className="font-serif text-[13.5px] sm:text-[15.5px] font-semibold text-[#2b1710] leading-snug">
                 {item.title}
               </h3>
-              <p className="font-['Noto_Serif_Kannada',serif] text-[12.5px] text-[#6d5142] mt-0.5">
+              <p className="font-['Noto_Serif_Kannada',serif] text-[11.5px] sm:text-[12.5px] text-[#6d5142] mt-0.5 leading-snug">
                 {item.kannada}
               </p>
             </div>

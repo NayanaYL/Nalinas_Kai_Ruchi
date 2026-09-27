@@ -34,7 +34,7 @@ Please confirm availability and dispatch details.`;
         onClick={(e) => e.stopPropagation()}
       >
         {/* Modal Header */}
-        <div className="bg-[#4a0d09] px-6 py-4 flex items-center justify-between text-[#fff9ec] border-b border-[#d8a83e]/30">
+        <div className="bg-[#4a0d09] px-4 sm:px-6 py-4 flex items-center justify-between gap-3 text-[#fff9ec] border-b border-[#d8a83e]/30">
           <div>
             <span className="text-[11px] font-sans tracking-widest uppercase text-[#d8a83e]">
               Karnataka Brahmin Tradition
@@ -46,19 +46,19 @@ Please confirm availability and dispatch details.`;
           <button
             onClick={onClose}
             aria-label="Close modal"
-            className="p-1.5 text-[#f8f0df] hover:text-[#d8a83e] rounded-full hover:bg-white/10 transition-colors"
+            className="inline-flex min-h-10 min-w-10 items-center justify-center rounded-full text-[#f8f0df] transition-colors hover:bg-white/10 hover:text-[#d8a83e]"
           >
             <X className="w-6 h-6" />
           </button>
         </div>
 
         {/* Modal Category Overview */}
-        <div className="bg-[#fbf7ee] px-6 py-3 border-b border-[#e8dbc4] text-[13px] text-[#52392c]">
+        <div className="bg-[#fbf7ee] px-4 sm:px-6 py-3 border-b border-[#e8dbc4] text-[13px] text-[#52392c]">
           {category.description}
         </div>
 
         {/* Modal Items List */}
-        <div className="overflow-y-auto p-6 space-y-5 flex-1 divide-y divide-[#f0e6d6]">
+        <div className="overflow-y-auto p-4 sm:p-6 space-y-5 flex-1 divide-y divide-[#f0e6d6]">
           {category.items.map((item) => {
             const currentWeight = selectedWeights[item.id] || item.weights[0];
             const currentPrice = item.prices[currentWeight];
@@ -85,13 +85,13 @@ Please confirm availability and dispatch details.`;
                   </p>
 
                   {/* Weight Selector Pills */}
-                  <div className="flex items-center gap-2 pt-2">
+                  <div className="flex flex-wrap items-center gap-2 pt-2">
                     <span className="text-[11px] font-medium text-[#52392c]">Pack Size:</span>
                     {item.weights.map((w) => (
                       <button
                         key={w}
                         onClick={() => handleWeightSelect(item.id, w)}
-                        className={`text-[11.5px] px-2.5 py-0.5 rounded-full border transition-all ${
+                        className={`min-h-10 min-w-11 px-2.5 py-1 text-[11.5px] rounded-full border transition-all ${
                           currentWeight === w
                             ? 'bg-[#5a0905] text-[#fff9ec] border-[#5a0905] font-semibold'
                             : 'bg-white text-[#52392c] border-[#d8dbc4] hover:border-[#5a0905]'
@@ -118,7 +118,7 @@ Please confirm availability and dispatch details.`;
                     href={createWhatsAppOrderUrl(item)}
                     target="_blank"
                     rel="noopener noreferrer"
-                    className="inline-flex items-center gap-1.5 bg-[#25D366] hover:bg-[#20ba59] text-white px-3.5 py-1.5 rounded-full text-[12.5px] font-semibold shadow-sm transition-all hover:scale-102"
+                    className="inline-flex min-h-10 items-center justify-center gap-1.5 bg-[#25D366] hover:bg-[#20ba59] text-white px-3.5 py-1.5 rounded-full text-[12.5px] font-semibold shadow-sm transition-all hover:scale-102"
                   >
                     <MessageCircle className="w-3.5 h-3.5 fill-current" />
                     <span>Order</span>
@@ -130,11 +130,11 @@ Please confirm availability and dispatch details.`;
         </div>
 
         {/* Modal Footer */}
-        <div className="bg-[#fbf7ee] px-6 py-3 border-t border-[#e8dbc4] flex items-center justify-between text-[12px] text-[#6d5142]">
+        <div className="bg-[#fbf7ee] px-4 sm:px-6 py-3 border-t border-[#e8dbc4] flex flex-col sm:flex-row items-start sm:items-center justify-between gap-2 text-[12px] text-[#6d5142]">
           <span>Freshly packaged upon order • Shipped across Karnataka & India</span>
           <button
             onClick={onClose}
-            className="text-[#5a0905] font-semibold hover:underline"
+            className="min-h-10 px-3 text-[#5a0905] font-semibold hover:underline"
           >
             Close
           </button>

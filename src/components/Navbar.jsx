@@ -67,15 +67,15 @@ export const Navbar = ({
 
   return (
     <header className={`sticky top-0 z-50 w-full bg-[#4a0d09] border-b border-[#d8a83e]/20 transition-all duration-300 ${isScrolled ? 'shadow-lg bg-[#4a0d09]/95 backdrop-blur-sm' : 'shadow-md'}`}>
-      <div className="max-w-7xl mx-auto px-3 sm:px-6 lg:px-8 h-[58px] sm:h-[68px] flex items-center justify-between">
+      <div className="max-w-7xl mx-auto px-3 sm:px-6 lg:px-8 min-h-[58px] sm:min-h-[68px] flex items-center justify-between gap-2">
         
         {/* LEFT: Logo & Brand */}
         <a 
           href="#home" 
           onClick={(e) => { e.preventDefault(); scrollTo('home'); }}
-          className="flex items-center gap-2 sm:gap-3 group focus:outline-none min-w-0"
+          className="flex items-center gap-1.5 sm:gap-3 group focus:outline-none min-w-0"
         >
-          <div className="relative w-9 h-9 sm:w-11 sm:h-11 rounded-full border border-[#d8a83e]/40 overflow-hidden flex items-center justify-center bg-[#3a0705] p-0.5 shrink-0">
+          <div className="relative w-8 h-8 sm:w-11 sm:h-11 rounded-full border border-[#d8a83e]/40 overflow-hidden flex items-center justify-center bg-[#3a0705] p-0.5 shrink-0">
             <img 
               src="/images/logo-cook.png" 
               alt="Nalina's Kai Ruchi Cook Logo" 
@@ -83,7 +83,7 @@ export const Navbar = ({
             />
           </div>
           <div className="flex flex-col text-left min-w-0">
-            <span className="font-['Satisfy',cursive] text-[18px] sm:text-[23px] text-[#fff9ec] leading-none tracking-wide group-hover:text-[#d8a83e] transition-colors whitespace-nowrap">
+            <span className="font-['Satisfy',cursive] text-[15px] sm:text-[23px] text-[#fff9ec] leading-none tracking-wide group-hover:text-[#d8a83e] transition-colors whitespace-nowrap overflow-hidden text-ellipsis">
               Nalina's Kai Ruchi
             </span>
             <span className="hidden sm:block text-[11px] sm:text-[11.5px] text-[#f8f0df]/85 tracking-tight font-serif italic">
@@ -93,7 +93,7 @@ export const Navbar = ({
         </a>
 
         {/* CENTER: Navigation Links (Desktop) */}
-        <nav className="hidden md:flex items-center gap-7 lg:gap-9 text-[14.5px] font-sans font-medium text-[#f8f0df]">
+        <nav className="hidden lg:flex items-center gap-5 xl:gap-9 text-[14.5px] font-sans font-medium text-[#f8f0df] shrink-0">
           <button
             onClick={() => scrollTo('home')}
             className={`relative py-1 transition-colors hover:text-[#d8a83e] ${
@@ -188,20 +188,20 @@ export const Navbar = ({
         </nav>
 
         {/* RIGHT: Language Toggle, Search, Order Now */}
-        <div className="flex items-center gap-2 sm:gap-4">
+        <div className="flex items-center gap-0.5 sm:gap-3 shrink-0">
           
           {/* Language Toggle Pill: EN | ಕನ್ನಡ */}
-          <div className="flex items-center border border-[#d8a83e]/40 rounded-full px-2 py-1 text-[10px] sm:text-[12px] font-sans font-medium text-[#f8f0df]">
+          <div className="hidden sm:flex items-center border border-[#d8a83e]/40 rounded-full px-1.5 sm:px-2 py-1 text-[10px] sm:text-[12px] font-sans font-medium text-[#f8f0df]">
             <button
               onClick={() => setLang('en')}
-              className={`transition-colors ${lang === 'en' ? 'text-[#d8a83e] font-semibold' : 'text-[#f8f0df]/70 hover:text-white'}`}
+              className={`inline-flex min-h-10 min-w-8 items-center justify-center px-1 transition-colors ${lang === 'en' ? 'text-[#d8a83e] font-semibold' : 'text-[#f8f0df]/70 hover:text-white'}`}
             >
               EN
             </button>
             <span className="mx-1 sm:mx-1.5 text-[#d8a83e]/50">|</span>
             <button
               onClick={() => setLang('kn')}
-              className={`transition-colors ${lang === 'kn' ? 'text-[#d8a83e] font-semibold' : 'text-[#f8f0df]/70 hover:text-white'}`}
+              className={`inline-flex min-h-10 min-w-8 items-center justify-center px-1 transition-colors ${lang === 'kn' ? 'text-[#d8a83e] font-semibold' : 'text-[#f8f0df]/70 hover:text-white'}`}
             >
               ಕನ್ನಡ
             </button>
@@ -211,7 +211,7 @@ export const Navbar = ({
           <button
             onClick={onOpenSearch}
             aria-label="Search spices and snacks"
-            className="p-1.5 text-[#f8f0df] hover:text-[#d8a83e] transition-colors"
+            className="flex min-h-10 min-w-10 items-center justify-center text-[#f8f0df] hover:text-[#d8a83e] transition-colors"
           >
             <Search className="w-4 h-4 sm:w-4 sm:h-4" />
           </button>
@@ -221,19 +221,20 @@ export const Navbar = ({
             href="https://wa.me/919980819355?text=Hello%20Nalina's%20Kai%20Ruchi,%20I%20would%20like%20to%20place%20an%20order."
             target="_blank"
             rel="noopener noreferrer"
-            className="hidden sm:inline-flex items-center gap-1.5 bg-[#e4efa8] hover:bg-[#d8e698] text-[#2b1710] px-3.5 py-1.5 rounded-full text-[13px] font-semibold transition-all duration-200 shadow-sm hover:scale-[1.02] active:scale-[0.98]"
+            aria-label={navLabels.orderNow}
+            className="inline-flex min-h-10 items-center justify-center gap-1.5 bg-[#e4efa8] hover:bg-[#d8e698] text-[#2b1710] px-2.5 sm:px-3.5 py-1.5 rounded-full text-[13px] font-semibold transition-all duration-200 shadow-sm hover:scale-[1.02] active:scale-[0.98]"
           >
             <span className="text-[#128C7E] flex items-center">
               <MessageCircle className="w-4 h-4 fill-current text-[#128C7E]" />
             </span>
-            <span>{navLabels.orderNow}</span>
+            <span className="hidden sm:inline">{navLabels.orderNow}</span>
           </a>
 
           {/* Mobile Hamburger Toggle */}
           <button
             onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
             aria-label="Toggle navigation menu"
-            className="md:hidden p-1.5 text-[#f8f0df] hover:text-[#d8a83e]"
+            className="lg:hidden flex min-h-10 min-w-10 items-center justify-center text-[#f8f0df] hover:text-[#d8a83e]"
           >
             {mobileMenuOpen ? <X className="w-6 h-6" /> : <MenuIcon className="w-6 h-6" />}
           </button>
@@ -242,46 +243,61 @@ export const Navbar = ({
 
       {/* Mobile Menu Drawer */}
       {mobileMenuOpen && (
-        <div className="md:hidden bg-[#3a0705] border-b border-[#d8a83e]/30 px-6 py-5 space-y-4">
+        <div className="lg:hidden bg-[#3a0705] border-b border-[#d8a83e]/30 px-4 sm:px-6 py-5 space-y-4">
           <div className="flex flex-col space-y-3 text-[16px] font-medium text-[#f8f0df]">
             <button 
               onClick={() => scrollTo('home')}
-              className="text-left py-1 hover:text-[#d8a83e]"
+              className="min-h-11 text-left py-2.5 hover:text-[#d8a83e]"
             >
               {navLabels.home}
             </button>
             <button 
               onClick={() => scrollTo('story')}
-              className="text-left py-1 hover:text-[#d8a83e]"
+              className="min-h-11 text-left py-2.5 hover:text-[#d8a83e]"
             >
               {navLabels.story}
             </button>
             <button 
               onClick={() => scrollTo('menu')}
-              className="text-left py-1 hover:text-[#d8a83e]"
+              className="min-h-11 text-left py-2.5 hover:text-[#d8a83e]"
             >
               {navLabels.menu}
             </button>
             <button 
               onClick={() => scrollTo('reviews')}
-              className="text-left py-1 hover:text-[#d8a83e]"
+              className="min-h-11 text-left py-2.5 hover:text-[#d8a83e]"
             >
               {navLabels.reviews}
             </button>
             <button 
               onClick={() => scrollTo('order')}
-              className="text-left py-1 hover:text-[#d8a83e]"
+              className="min-h-11 text-left py-2.5 hover:text-[#d8a83e]"
             >
               {navLabels.contact}
             </button>
           </div>
 
           <div className="pt-3 border-t border-[#d8a83e]/20 flex flex-col gap-3">
+            <div className="sm:hidden flex items-center justify-center border border-[#d8a83e]/40 rounded-full px-2 py-1 text-[12px] font-sans font-medium text-[#f8f0df] w-fit mx-auto">
+              <button
+                onClick={() => setLang('en')}
+                className={`inline-flex min-h-10 min-w-10 items-center justify-center ${lang === 'en' ? 'text-[#d8a83e] font-semibold' : 'text-[#f8f0df]/70'}`}
+              >
+                EN
+              </button>
+              <span className="mx-1.5 text-[#d8a83e]/50">|</span>
+              <button
+                onClick={() => setLang('kn')}
+                className={`inline-flex min-h-10 min-w-10 items-center justify-center ${lang === 'kn' ? 'text-[#d8a83e] font-semibold' : 'text-[#f8f0df]/70'}`}
+              >
+                ಕನ್ನಡ
+              </button>
+            </div>
             <a
               href="https://wa.me/919980819355?text=Hello%20Nalina's%20Kai%20Ruchi,%20I%20would%20like%20to%20place%20an%20order."
               target="_blank"
               rel="noopener noreferrer"
-              className="flex items-center justify-center gap-2 bg-[#e4efa8] text-[#2b1710] py-2.5 rounded-full text-[14px] font-semibold"
+              className="flex min-h-11 items-center justify-center gap-2 bg-[#e4efa8] text-[#2b1710] py-2.5 rounded-full text-[14px] font-semibold"
             >
               <MessageCircle className="w-4 h-4 fill-current text-[#128C7E]" />
               <span>{navLabels.orderNow} (WhatsApp)</span>

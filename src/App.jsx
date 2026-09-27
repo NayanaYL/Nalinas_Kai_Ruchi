@@ -72,7 +72,7 @@ export default function App() {
   };
 
   return (
-    <div className="min-h-screen bg-[#f8f2e6] text-[#2b1710] flex flex-col font-sans selection:bg-[#d8a83e]/30 selection:text-[#35170d]">
+    <div className="min-h-screen w-full max-w-[100vw] overflow-x-clip bg-[#f8f2e6] text-[#2b1710] flex flex-col font-sans selection:bg-[#d8a83e]/30 selection:text-[#35170d]">
       
       {/* Top Sticky Navigation */}
       <Navbar

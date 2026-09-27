@@ -24,15 +24,15 @@ export const Specialities = ({ lang, onSelectCategory }) => {
         </div>
 
         {/* 3 Horizontal Cards */}
-        <div className="grid grid-cols-1 md:grid-cols-3 gap-6 lg:gap-7">
-          {MENU_CATEGORIES.map((cat) => (
+        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6 lg:gap-7">
+          {MENU_CATEGORIES.map((cat, index) => (
             <div
               key={cat.id}
               onClick={() => onSelectCategory(cat)}
-              className="group cursor-pointer bg-[#fffdf9] rounded-[6px] border border-[#e8dbc4] overflow-hidden shadow-sm hover:shadow-md transition-all duration-300 flex flex-col hover:-translate-y-1"
+              className={`group cursor-pointer bg-[#fffdf9] rounded-[6px] border border-[#e8dbc4] overflow-hidden shadow-sm hover:shadow-md transition-all duration-300 flex flex-col hover:-translate-y-1 ${index === MENU_CATEGORIES.length - 1 ? 'tablet-category-center' : ''}`}
             >
               {/* Card Image */}
-              <div className="w-full h-32 sm:h-36 overflow-hidden bg-[#3a0705]/10 relative">
+              <div className="w-full aspect-[16/9] sm:aspect-[2/1] overflow-hidden bg-[#3a0705]/10 relative">
                 <img
                   src={cat.image}
                   alt={cat.title}
@@ -53,7 +53,7 @@ export const Specialities = ({ lang, onSelectCategory }) => {
 
                 {/* Explore Link */}
                 <div className="pt-4 mt-auto">
-                  <span className="inline-flex items-center gap-1.5 text-[13px] font-semibold text-[#35170d] group-hover:text-[#5a0905]">
+                  <span className="inline-flex min-h-11 items-center gap-1.5 text-[13px] font-semibold text-[#35170d] group-hover:text-[#5a0905]">
                     <span>Explore</span>
                     <ArrowRight className="w-3.5 h-3.5 transition-transform duration-200 group-hover:translate-x-1" />
                   </span>

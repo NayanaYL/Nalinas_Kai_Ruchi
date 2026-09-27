@@ -10,10 +10,10 @@ export const StoryAndKitchen = ({ onOpenStory }) => {
         <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 items-stretch">
           
           {/* LEFT: Our Story (Unboxed on cream background, matching screenshot) */}
-          <div className="lg:col-span-7 flex flex-col sm:flex-row gap-5 lg:gap-6 items-start">
+          <div className="lg:col-span-7 flex flex-col sm:flex-row gap-5 lg:gap-6 items-start min-w-0">
             
             {/* Photo of Traditional Woman cooking in Karnataka kitchen */}
-            <div className="w-full sm:w-[48%] h-56 sm:h-64 rounded-[4px] overflow-hidden flex-shrink-0 bg-[#3a0705]/10 shadow-sm">
+            <div className="w-full sm:w-[48%] aspect-[4/3] sm:aspect-auto sm:h-64 rounded-[4px] overflow-hidden flex-shrink-0 bg-[#3a0705]/10 shadow-sm">
               <img
                 src="/images/our-story.jpg"
                 alt="Traditional Karnataka Cook preparing food in brass vessels"
@@ -22,7 +22,7 @@ export const StoryAndKitchen = ({ onOpenStory }) => {
             </div>
 
             {/* Story Text */}
-            <div className="w-full sm:w-[52%] text-left flex flex-col justify-between h-full space-y-3 pt-1">
+            <div className="w-full sm:w-[52%] text-left flex flex-col justify-between h-full space-y-3 pt-1 min-w-0">
               <div>
                 <div className="text-[#35170d] text-lg font-bold leading-none mb-1">—</div>
                 <div className="flex flex-col items-start gap-0.5">
@@ -45,7 +45,7 @@ export const StoryAndKitchen = ({ onOpenStory }) => {
               <div className="pt-2">
                 <button
                   onClick={onOpenStory}
-                  className="group inline-flex items-center gap-1.5 text-[13px] font-semibold text-[#35170d] hover:text-[#5a0905] transition-colors"
+                  className="group inline-flex min-h-11 items-center gap-1.5 text-[13px] font-semibold text-[#35170d] hover:text-[#5a0905] transition-colors"
                 >
                   <span>Know More</span>
                   <ArrowRight className="w-3.5 h-3.5 transition-transform duration-200 group-hover:translate-x-1" />
@@ -74,8 +74,8 @@ export const StoryAndKitchen = ({ onOpenStory }) => {
             </div>
 
             {/* Content: Photo + Text */}
-            <div className="mt-4 flex flex-col sm:flex-row gap-4 items-center">
-              <div className="w-full sm:w-36 h-28 rounded-[4px] overflow-hidden flex-shrink-0 bg-[#3a0705]/10">
+            <div className="mt-4 flex flex-col sm:flex-row gap-4 items-center min-w-0">
+              <div className="w-full sm:w-36 h-40 sm:h-28 rounded-[4px] overflow-hidden flex-shrink-0 bg-[#3a0705]/10">
                 <img
                   src="/images/kitchen-masala.jpg"
                   alt="Freshly ground masala powder in brass bowl"

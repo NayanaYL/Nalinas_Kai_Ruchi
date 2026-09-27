@@ -10,7 +10,7 @@ export const StoryModal = ({ isOpen, onClose }) => {
         className="bg-[#fffdf9] w-full max-w-3xl max-h-[90vh] rounded-lg shadow-2xl border border-[#d8a83e]/40 overflow-hidden flex flex-col text-left"
         onClick={(e) => e.stopPropagation()}
       >
-        <div className="bg-[#4a0d09] px-6 py-4 flex items-center justify-between text-[#fff9ec] border-b border-[#d8a83e]/30">
+        <div className="bg-[#4a0d09] px-4 sm:px-6 py-4 flex items-center justify-between gap-3 text-[#fff9ec] border-b border-[#d8a83e]/30">
           <div>
             <span className="text-[11px] font-sans tracking-widest uppercase text-[#d8a83e]">
               Heirloom Heritage
@@ -27,7 +27,7 @@ export const StoryModal = ({ isOpen, onClose }) => {
           </button>
         </div>
 
-        <div className="p-6 overflow-y-auto space-y-6 text-[#52392c] text-[14px] leading-relaxed font-sans">
+        <div className="p-4 sm:p-6 overflow-y-auto space-y-6 text-[#52392c] text-[14px] leading-relaxed font-sans">
           
           <div className="flex flex-col md:flex-row gap-6 items-center bg-[#fbf7ee] p-4 rounded-lg border border-[#e8dbc4]">
             <img

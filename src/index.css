@@ -13,6 +13,7 @@
 
   html {
     scroll-behavior: smooth;
+    overflow-x: clip;
   }
 
   body {
@@ -21,7 +22,8 @@
     background-color: #f8f2e6;
     color: #2b1710;
     font-family: 'Inter', system-ui, -apple-system, sans-serif;
-    overflow-x: hidden;
+    overflow-x: clip;
+    max-width: 100%;
   }
 
   #root {
@@ -31,6 +33,23 @@
     padding: 0 !important;
     border: none !important;
     text-align: left !important;
+    overflow-x: clip;
+  }
+
+  img,
+  video {
+    max-width: 100%;
+    height: auto;
+  }
+
+  img.object-cover,
+  img[class*="object-cover"] {
+    height: 100%;
+  }
+
+  button,
+  a {
+    max-width: 100%;
   }
 }
 
@@ -70,6 +89,41 @@
 }
 .font-cormorant {
   font-family: 'Cormorant Garamond', Georgia, serif;
+}
+
+@media (min-width: 640px) and (max-width: 1023px) {
+  .tablet-category-center {
+    grid-column: span 2;
+    width: calc(50% - 0.75rem);
+    justify-self: center;
+  }
+}
+
+/* Fluid type and section spacing — keep branding, adapt to width */
+.site-heading {
+  font-size: clamp(1.5rem, 2.4vw + 0.9rem, 1.875rem);
+}
+
+.hero-title {
+  font-size: clamp(1.75rem, 5vw + 0.6rem, 3.875rem);
+}
+
+.hero-subhead {
+  font-size: clamp(1.05rem, 1.6vw + 0.7rem, 1.5625rem);
+}
+
+@media (max-width: 389px) {
+  .hero-eyebrow {
+    letter-spacing: 0.08em;
+  }
+}
+
+@media (max-width: 767px) {
+  .feature-last {
+    grid-column: span 2;
+    justify-self: center;
+    width: min(100%, 11.5rem);
+  }
 }
 
 

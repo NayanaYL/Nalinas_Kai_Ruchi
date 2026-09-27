@@ -8,7 +8,7 @@ export const CustomerReviews = ({ lang, reviews, reviewsLoading = false, onOpenR
     <section id="reviews" className="w-full bg-[#f8f2e6] py-14 sm:py-18 border-t border-[#e8dbc4]">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         
-        <div className="flex flex-col sm:flex-row sm:items-end justify-between gap-4 mb-8 text-left">
+        <div className="flex flex-col sm:flex-row sm:items-end justify-between gap-4 mb-8 text-left min-w-0">
           <div>
             <div className="flex flex-wrap items-baseline gap-2">
               <h2 className="font-serif text-[26px] sm:text-[30px] font-bold text-[#2b1710] tracking-tight">
@@ -25,7 +25,7 @@ export const CustomerReviews = ({ lang, reviews, reviewsLoading = false, onOpenR
             <button
               type="button"
               onClick={onOpenReviewForm}
-              className="mt-4 inline-flex w-fit max-w-full items-center justify-center gap-2 rounded-[4px] bg-[#25D366] px-4 py-2.5 text-center text-[13px] font-semibold text-white shadow-sm transition-colors hover:bg-[#20ba59] focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[#4a0d09]"
+              className="mt-4 inline-flex min-h-11 w-fit max-w-full flex-wrap items-center justify-center gap-2 rounded-[4px] bg-[#25D366] px-4 py-2.5 text-center text-[13px] font-semibold text-white shadow-sm transition-colors hover:bg-[#20ba59] focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[#4a0d09]"
             >
               <MessageCircle className="h-4 w-4 shrink-0" />
               <span>Share Your Review on WhatsApp</span>
@@ -50,15 +50,15 @@ export const CustomerReviews = ({ lang, reviews, reviewsLoading = false, onOpenR
             </p>
           </div>
         ) : (
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+          <div className="grid grid-cols-1 sm:grid-cols-2 xl:grid-cols-3 gap-6">
             {reviews.map((rev) => (
               <div
                 key={rev.id}
-                className="bg-[#fffdf9] border border-[#e8dbc4] rounded-[6px] p-5 shadow-sm hover:shadow-md transition-all duration-200 flex flex-col justify-between text-left group hover:-translate-y-0.5"
+                className="bg-[#fffdf9] border border-[#e8dbc4] rounded-[6px] p-4 sm:p-5 shadow-sm hover:shadow-md transition-all duration-200 flex flex-col justify-between text-left group hover:-translate-y-0.5 min-w-0"
               >
                 <div>
-                  <div className="flex items-center justify-between gap-2 mb-3">
-                    <div className="flex items-center gap-1">
+                  <div className="flex items-start justify-between gap-2 mb-3 min-w-0">
+                    <div className="flex items-center gap-1 shrink-0">
                       {[1, 2, 3, 4, 5].map((s) => (
                         <Star
                           key={s}
@@ -72,7 +72,7 @@ export const CustomerReviews = ({ lang, reviews, reviewsLoading = false, onOpenR
                     </div>
 
                     {rev.verified && (
-                      <span className="inline-flex items-center gap-1 text-[11px] font-medium text-emerald-800 bg-emerald-50 px-2 py-0.5 rounded-full border border-emerald-200">
+                      <span className="inline-flex max-w-[60%] items-center gap-1 text-[11px] font-medium text-emerald-800 bg-emerald-50 px-2 py-0.5 rounded-full border border-emerald-200">
                         <CheckCircle className="w-3 h-3 text-emerald-600" />
                         <span>{lang === 'en' ? 'Verified Order' : 'ಖರೀದಿ ದೃಢೀಕರಿಸಲಾಗಿದೆ'}</span>
                       </span>
@@ -90,18 +90,18 @@ export const CustomerReviews = ({ lang, reviews, reviewsLoading = false, onOpenR
                   )}
                 </div>
 
-                <div className="pt-3 border-t border-[#f0e6d6] flex items-center justify-between text-[12px] text-[#6d5142]">
-                  <div>
+                <div className="pt-3 border-t border-[#f0e6d6] flex items-start justify-between gap-3 text-[12px] text-[#6d5142] min-w-0">
+                  <div className="min-w-0">
                     <div className="font-serif font-bold text-[#2b1710] text-[14px]">
                       {rev.name}
                     </div>
-                    <div className="flex items-center gap-1 text-[11.5px] text-[#8c6f5d] mt-0.5">
-                      <MapPin className="w-3 h-3 text-[#5a0905]" />
-                      <span>{rev.location}</span>
+                    <div className="flex items-start gap-1 text-[11.5px] text-[#8c6f5d] mt-0.5">
+                      <MapPin className="w-3 h-3 text-[#5a0905] mt-0.5 shrink-0" />
+                      <span className="break-words">{rev.location}</span>
                     </div>
                   </div>
 
-                  <span className="text-[11px] text-[#8c6f5d] font-sans">
+                  <span className="text-[11px] text-[#8c6f5d] font-sans shrink-0 whitespace-nowrap">
                     {rev.date}
                   </span>
                 </div>
