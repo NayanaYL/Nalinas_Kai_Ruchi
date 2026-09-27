@@ -1,9 +1,8 @@
 import React from 'react';
-import { Star, CheckCircle, MessageSquarePlus, MapPin, ShieldCheck } from 'lucide-react';
+import { Star, CheckCircle, MapPin, MessageCircle } from 'lucide-react';
 import { KolamDivider } from './Decorations';
 
-export const CustomerReviews = ({ lang, reviews, onOpenReviewModal, onOpenReviewQueue, pendingReviewsCount = 0 }) => {
-  const showPendingNotice = pendingReviewsCount > 0;
+export const CustomerReviews = ({ lang, reviews, reviewsLoading = false, onOpenReviewForm }) => {
 
   return (
     <section id="reviews" className="w-full bg-[#f8f2e6] py-14 sm:py-18 border-t border-[#e8dbc4]">
@@ -21,41 +20,22 @@ export const CustomerReviews = ({ lang, reviews, onOpenReviewModal, onOpenReview
               </span>
             </div>
             <p className="text-[14px] sm:text-[15px] text-[#6d5142] font-sans mt-1">
-              Authentic love from homes that cherish Karnataka's traditional flavours.
+              We'd love to hear from you! Share your experience with Nalina’s Kai Ruchi on WhatsApp.
             </p>
-          </div>
-
-          <div className="flex flex-wrap items-center gap-2">
-            {pendingReviewsCount > 0 && (
-              <button
-                type="button"
-                onClick={onOpenReviewQueue}
-                className="inline-flex items-center gap-2 rounded-[4px] border border-[#d8a83e]/60 bg-[#fffdf9] px-3 py-2 text-[11px] font-semibold text-[#5a0905] shadow-sm transition-all duration-200 hover:bg-[#f8f2e6]"
-              >
-                <ShieldCheck className="w-3.5 h-3.5 text-[#d8a83e]" />
-                <span>{pendingReviewsCount} pending</span>
-              </button>
-            )}
-
             <button
-              onClick={onOpenReviewModal}
-              className="self-start sm:self-auto inline-flex items-center gap-2 bg-[#fffdf9] hover:bg-[#5a0905] text-[#5a0905] hover:text-[#fff9ec] border border-[#d8a83e]/60 px-4 py-2 rounded-[4px] text-[13px] font-semibold shadow-sm transition-all duration-200"
+              type="button"
+              onClick={onOpenReviewForm}
+              className="mt-4 inline-flex w-fit max-w-full items-center justify-center gap-2 rounded-[4px] bg-[#25D366] px-4 py-2.5 text-center text-[13px] font-semibold text-white shadow-sm transition-colors hover:bg-[#20ba59] focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[#4a0d09]"
             >
-              <MessageSquarePlus className="w-4 h-4 text-[#d8a83e]" />
-              <span>{lang === 'en' ? 'Write a Review' : 'ನಿಮ್ಮ ಅನಿಸಿಕೆ ಹಂಚಿಕೊಳ್ಳಿ'}</span>
+              <MessageCircle className="h-4 w-4 shrink-0" />
+              <span>Share Your Review on WhatsApp</span>
             </button>
           </div>
         </div>
 
-        {showPendingNotice && (
-          <div className="mb-5 rounded border border-amber-200 bg-amber-50 px-4 py-3 text-sm text-amber-900">
-            {pendingReviewsCount === 1
-              ? 'Your review was submitted successfully and is pending approval.'
-              : `${pendingReviewsCount} reviews are pending approval and will appear publicly after moderation.`}
-          </div>
-        )}
-
-        {reviews.length === 0 && !showPendingNotice ? (
+        {reviewsLoading ? (
+          <p className="py-10 text-center text-sm text-[#6d5142]">Loading customer reviews...</p>
+        ) : reviews.length === 0 ? (
           <div className="flex flex-col items-center justify-center py-16 px-6 bg-[#fffdf9] border border-[#e8dbc4] rounded-[6px] text-center shadow-sm">
             <div className="flex items-center gap-1 mb-4">
               {[1, 2, 3, 4, 5].map((s) => (
@@ -63,18 +43,11 @@ export const CustomerReviews = ({ lang, reviews, onOpenReviewModal, onOpenReview
               ))}
             </div>
             <h3 className="font-serif text-[18px] font-bold text-[#2b1710] mb-2">
-              Be the first to share your experience with Nalina’s Kai Ruchi!
+              Customer reviews
             </h3>
             <p className="text-[13.5px] text-[#6d5142] font-sans leading-relaxed max-w-md">
-              We’re waiting to hear what you loved most about our homemade Karnataka specials.
+              We’re collecting stories from homes that enjoy our traditional Karnataka specials.
             </p>
-            <button
-              onClick={onOpenReviewModal}
-              className="mt-6 inline-flex items-center gap-2 bg-[#4a0d09] hover:bg-[#5a0905] text-[#fff9ec] px-5 py-2.5 rounded-[4px] text-[13px] font-semibold shadow-sm transition-all duration-200"
-            >
-              <MessageSquarePlus className="w-4 h-4 text-[#d8a83e]" />
-              <span>{lang === 'en' ? 'Write a Review' : 'ನಿಮ್ಮ ಅನಿಸಿಕೆ ಹಂಚಿಕೊಳ್ಳಿ'}</span>
-            </button>
           </div>
         ) : (
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">

@@ -1,6 +1,5 @@
-// Default reviews list — intentionally empty.
-// Real customer reviews will be added here once received from buyers.
-// Each review object should follow this shape:
+// Add manually approved customer reviews here.
+// Each review object follows this shape:
 // {
 //   id: "rev-1",
 //   name: "Customer Name",
