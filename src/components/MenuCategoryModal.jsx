@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import { X, MessageCircle } from 'lucide-react';
 
-export const MenuCategoryModal = ({ category, lang, onClose }) => {
+export const MenuCategoryModal = ({ category, lang, onClose, onAddToCart }) => {
   const [selectedWeights, setSelectedWeights] = useState({});
 
   if (!category) return null;
@@ -103,8 +103,8 @@ Please confirm availability and dispatch details.`;
                   </div>
                 </div>
 
-                {/* Price & Direct WhatsApp Button */}
-                <div className="flex sm:flex-col items-center sm:items-end justify-between sm:justify-center gap-2 pt-2 sm:pt-0">
+                {/* Price & Action Buttons */}
+                <div className="flex w-full sm:w-auto sm:min-w-[210px] flex-col items-stretch sm:items-end justify-between sm:justify-center gap-2 pt-2 sm:pt-0">
                   <div className="text-right">
                     <div className="text-[19px] font-bold text-[#5a0905] font-serif">
                       ₹{currentPrice}
@@ -114,15 +114,32 @@ Please confirm availability and dispatch details.`;
                     </div>
                   </div>
 
-                  <a
-                    href={createWhatsAppOrderUrl(item)}
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    className="inline-flex min-h-10 items-center justify-center gap-1.5 bg-[#25D366] hover:bg-[#20ba59] text-white px-3.5 py-1.5 rounded-full text-[12.5px] font-semibold shadow-sm transition-all hover:scale-102"
-                  >
-                    <MessageCircle className="w-3.5 h-3.5 fill-current" />
-                    <span>Order</span>
-                  </a>
+                  <div className="grid grid-cols-2 gap-2 w-full sm:w-auto">
+                    <button
+                      type="button"
+                      onClick={() => onAddToCart?.({
+                        id: item.id,
+                        name: item.name,
+                        kannadaName: item.kannadaName,
+                        weight: currentWeight,
+                        price: currentPrice,
+                        image: category.image,
+                      }, category.image)}
+                      className="inline-flex min-h-10 items-center justify-center gap-1.5 bg-[#f5e7c0] hover:bg-[#e8d5a1] text-[#2b1710] px-2.5 py-1.5 rounded-full text-[12px] font-semibold shadow-sm transition-all hover:scale-[1.01]"
+                    >
+                      Add to Cart
+                    </button>
+
+                    <a
+                      href={createWhatsAppOrderUrl(item)}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className="inline-flex min-h-10 items-center justify-center gap-1.5 bg-[#25D366] hover:bg-[#20ba59] text-white px-2.5 py-1.5 rounded-full text-[12px] font-semibold shadow-sm transition-all hover:scale-[1.01]"
+                    >
+                      <MessageCircle className="w-3.5 h-3.5 fill-current" />
+                      <span>Order Now</span>
+                    </a>
+                  </div>
                 </div>
               </div>
             );

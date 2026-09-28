@@ -11,7 +11,17 @@ import { SearchModal } from './components/SearchModal';
 import { StoryModal } from './components/StoryModal';
 import { CustomerReviews } from './components/CustomerReviews';
 import { ReviewModal } from './components/ReviewModal';
+import { CartDrawer } from './components/CartDrawer';
 import { DEFAULT_REVIEWS } from './data/reviewsData';
+import {
+  CART_STORAGE_KEY,
+  addCartItem,
+  clearCartItems,
+  getCartTotals,
+  removeCartItem,
+  sanitizeCartData,
+  updateCartQuantity,
+} from './utils/cart';
 
 const normalizeReview = (review, index = 0) => ({
   id: review.id || `rev-${Date.now()}-${index}`,
@@ -35,6 +45,21 @@ export default function App() {
   const [reviewModalOpen, setReviewModalOpen] = useState(false);
   const [reviews, setReviews] = useState(DEFAULT_REVIEWS);
   const [reviewsLoading, setReviewsLoading] = useState(true);
+  const [cart, setCart] = useState(() => {
+    try {
+      const saved = localStorage.getItem(CART_STORAGE_KEY);
+      if (!saved) return [];
+      return sanitizeCartData(JSON.parse(saved));
+    } catch (error) {
+      console.warn('Cart data could not be loaded from localStorage.', error);
+      return [];
+    }
+  });
+  const [cartOpen, setCartOpen] = useState(false);
+
+  useEffect(() => {
+    localStorage.setItem(CART_STORAGE_KEY, JSON.stringify(cart));
+  }, [cart]);
 
   useEffect(() => {
     let cancelled = false;
@@ -64,11 +89,36 @@ export default function App() {
   }, []);
 
   const approvedReviews = reviews.filter((review) => review.status === 'approved');
+  const cartTotals = getCartTotals(cart);
+
   const handleExploreClick = () => {
     const el = document.getElementById('menu');
     if (el) {
       el.scrollIntoView({ behavior: 'smooth' });
     }
+  };
+
+  const handleAddToCart = (product, categoryImage) => {
+    const item = {
+      ...product,
+      image: product.image || categoryImage || '/images/logo-cook.png',
+      weight: product.weight || product.weights?.[0] || '',
+      price: Number(product.price) || 0,
+    };
+    setCart((currentCart) => addCartItem(currentCart, item));
+    setCartOpen(true);
+  };
+
+  const handleUpdateQuantity = (itemId, weight, delta) => {
+    setCart((currentCart) => updateCartQuantity(currentCart, itemId, weight, delta));
+  };
+
+  const handleRemoveItem = (itemId, weight) => {
+    setCart((currentCart) => removeCartItem(currentCart, itemId, weight));
+  };
+
+  const handleClearCart = () => {
+    setCart(clearCartItems());
   };
 
   return (
@@ -80,6 +130,8 @@ export default function App() {
         setLang={setLang}
         onOpenSearch={() => setSearchOpen(true)}
         onSelectCategory={(cat) => setActiveCategory(cat)}
+        cartItemCount={cartTotals.count}
+        onOpenCart={() => setCartOpen(true)}
       />
 
       {/* Hero Section */}
@@ -125,6 +177,17 @@ export default function App() {
         category={activeCategory}
         lang={lang}
         onClose={() => setActiveCategory(null)}
+        onAddToCart={handleAddToCart}
+      />
+
+      <CartDrawer
+        isOpen={cartOpen}
+        items={cart}
+        onClose={() => setCartOpen(false)}
+        onUpdateQuantity={handleUpdateQuantity}
+        onRemove={handleRemoveItem}
+        onClear={handleClearCart}
+        onContinueShopping={() => setCartOpen(false)}
       />
 
       <SearchModal

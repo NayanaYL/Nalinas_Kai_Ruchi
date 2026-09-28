@@ -6,7 +6,9 @@ export const Navbar = ({
   lang, 
   setLang, 
   onOpenSearch, 
-  onSelectCategory
+  onSelectCategory,
+  cartItemCount = 0,
+  onOpenCart,
 }) => {
   const [isScrolled, setIsScrolled] = useState(false);
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
@@ -86,7 +88,7 @@ export const Navbar = ({
             <span className="font-['Satisfy',cursive] text-[15px] sm:text-[23px] text-[#fff9ec] leading-none tracking-wide group-hover:text-[#d8a83e] transition-colors whitespace-nowrap overflow-hidden text-ellipsis">
               Nalina's Kai Ruchi
             </span>
-            <span className="hidden sm:block text-[11px] sm:text-[11.5px] text-[#f8f0df]/85 tracking-tight font-serif italic">
+            <span className="block text-[9px] leading-[1.2] text-[#f8f0df]/85 tracking-tight font-serif italic max-w-[200px] sm:max-w-none sm:text-[11.5px]">
               Bringing <strong className="font-semibold not-italic">Brahmins</strong> tradition to your table
             </span>
           </div>
@@ -214,6 +216,24 @@ export const Navbar = ({
             className="flex min-h-10 min-w-10 items-center justify-center text-[#f8f0df] hover:text-[#d8a83e] transition-colors"
           >
             <Search className="w-4 h-4 sm:w-4 sm:h-4" />
+          </button>
+
+          {/* Cart Button */}
+          <button
+            type="button"
+            onClick={onOpenCart}
+            aria-label="Open shopping cart"
+            className="relative inline-flex min-h-10 items-center justify-center gap-1.5 rounded-full border border-[#d8a83e]/40 bg-[#3a0705] px-2.5 py-1.5 text-[11px] sm:text-[12px] font-semibold text-[#f8f0df] transition-all hover:border-[#d8a83e] hover:text-[#d8a83e]"
+          >
+            <span className="flex items-center gap-1">
+              <span aria-hidden="true">🛒</span>
+              <span>Cart</span>
+            </span>
+            {cartItemCount > 0 && (
+              <span className="inline-flex min-w-[18px] h-5 items-center justify-center rounded-full bg-[#d8a83e] px-1 text-[10px] font-bold text-[#2b1710]">
+                {cartItemCount}
+              </span>
+            )}
           </button>
 
           {/* WhatsApp Order Now Button (Pistachio/light golden pill with WhatsApp icon) */}
