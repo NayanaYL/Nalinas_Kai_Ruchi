@@ -155,7 +155,7 @@ export const MENU_CATEGORIES = [
         kannadaName: "ಬೆಣ್ಣೆ ಮುರುಕು",
         description: "Crunchy spiral delight made with rice flour, roasted urad dal, cumin, sesame and rich country butter.",
         weights: ["250g", "500g", "1kg"],
-        prices: {"250g": 169, "500g": 346, "1kg": 678 },
+        prices: {"250g": 220, "500g": 410, "1kg": 799 },
         badge: "Melt In Mouth",
         shelfLife: "45 Days"
       },
@@ -164,8 +164,8 @@ export const MENU_CATEGORIES = [
         name: "Crispy Nippattu",
         kannadaName: "ಗರಿಗರಿ ನಿಪ್ಪಟ್ಟು",
         description: "Spicy Karnataka rice crisps studded with roasted peanuts, fried gram, curry leaves, and green chillies.",
-        weights: ["Pack of 1","Pack of 5", "Pack of 10"],
-        prices: { "Pack of 1": 6, "Pack of 5": 29, "Pack of 10": 59 },
+        weights: ["250g", "500g", "1kg"],
+        prices: {"250g": 199, "500g": 399, "1kg": 781 },
         badge: "Evening Tea Classic",
         shelfLife: "45 Days"
       },
@@ -174,8 +174,8 @@ export const MENU_CATEGORIES = [
         name: "Kodubale",
         kannadaName: "ಕೋಡುಬಳೆ",
         description: "Ring-shaped savoury snack with the distinctive crunch of roasted rice flour, coconut and red chilli.",
-        weights: ["Pack of 1","Pack of 5", "Pack of 10"],
-        prices: { "Pack of 1":6,"Pack of 5": 29, "Pack of 10": 59 },
+        weights: ["250g", "500g", "1kg"],
+        prices: {"250g": 199, "500g": 399, "1kg": 781 },
         badge: "Crispy Delight",
         shelfLife: "45 Days"
       },
