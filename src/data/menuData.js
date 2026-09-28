@@ -154,8 +154,8 @@ export const MENU_CATEGORIES = [
         name: "Butter Chakkuli",
         kannadaName: "ಬೆಣ್ಣೆ ಮುರುಕು",
         description: "Crunchy spiral delight made with rice flour, roasted urad dal, cumin, sesame and rich country butter.",
-        weights: ["100g", "250g", "500g", "1kg"],
-        prices: { "100g": 85, "250g": 169, "500g": 346, "1kg": 678 },
+        weights: ["250g", "500g", "1kg"],
+        prices: {"250g": 169, "500g": 346, "1kg": 678 },
         badge: "Melt In Mouth",
         shelfLife: "45 Days"
       },
