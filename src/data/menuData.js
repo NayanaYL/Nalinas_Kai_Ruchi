@@ -38,22 +38,12 @@ export const MENU_CATEGORIES = [
         shelfLife: "6 Months"
       },
       {
-        id: "puliogare-gojju",
-        name: "Puliogare Gojju",
-        kannadaName: "ಪುಳಿಯೋಗರೆ ಗೊಜ್ಜು",
-        description: "Slow-simmered thick tamarind paste cooked with organic jaggery, roasted spices, peanuts and sesame oil.",
-        weights: ["100g", "250g", "500g", "1kg"],
-        prices: { "100g": 115, "250g": 225, "500g": 421, "1kg": 829 },
-        badge: "Instant Mix",
-        shelfLife: "6 Months"
-      },
-      {
         id: "sambar-huli-pudi",
         name: "Sambar Pudi / Huli Pudi",
         kannadaName: "ಸಾಂಬಾರ್ ಪುಡಿ / ಹುಳಿ ಪುಡಿ",
         description: "Authentic Brahmin style sambar powder made without onion or garlic. Gives rich aroma and golden color to your dal.",
-        weights: ["100g", "250g", "500g", "1kg"],
-        prices: { "100g": 99, "250g": 209, "500g": 411, "1kg": 819 },
+        weights: ["250g", "500g", "1kg"],
+        prices: {"250g": 340, "500g": 620, "1kg": 1200 },
         badge: "Pure Brahmin Style",
         shelfLife: "6 Months"
       },
@@ -62,8 +52,8 @@ export const MENU_CATEGORIES = [
         name: "Rasam Powder / Saarina Pudi",
         kannadaName: "ರಸಂ ಪುಡಿ / ಸಾರಿನ ಪುಡಿ",
         description: "Soul-soothing traditional rasam powder. Mildly spiced, fragrant with roasted cumin, pepper and curry leaves.",
-        weights: ["100g", "250g", "500g", "1kg"],
-        prices: { "100g": 99, "250g": 209, "500g": 409, "1kg": 829 },
+        weights: ["250g", "500g", "1kg"],
+        prices: {"250g": 340, "500g": 620, "1kg": 1200 },
         badge: "Everyday Staple",
         shelfLife: "6 Months"
       }
@@ -115,7 +105,7 @@ export const MENU_CATEGORIES = [
         kannadaName: "ನುಗ್ಗೆ ಸೊಪ್ಪಿನ ಚಟ್ನಿ ಪುಡಿ",
         description: "Nutritious drumstick leaf (moringa) chutney powder roasted with sesame and lentils. A modern superfood prepared traditionally.",
         weights: ["100g", "250g", "500g", "1kg"],
-        prices: { "100g": 115, "250g": 229, "500g": 466, "1kg": 829 },
+        prices: { "100g": 189, "250g": 470, "500g": 940, "1kg": 1799 },
         badge: "Immunity Booster",
         shelfLife: "4 Months"
       },
@@ -185,7 +175,7 @@ export const MENU_CATEGORIES = [
         kannadaName: "ಬೇಳೆ ಹೋಳಿಗೆ (ದಾಲ್ ಒಬ್ಬಟ್ಟು)",
         description: "Delicate sweet flatbread filled with sweet chana dal and organic jaggery puran, scented with green cardamom.",
         weights: ["Pack of 1","Pack of 5", "Pack of 10"],
-        prices: { "Pack of 1": 24, "Pack of 5": 126, "Pack of 10": 249 },
+        prices: { "Pack of 1": 34, "Pack of 5": 170, "Pack of 10": 340 },
         badge: "Festive Heirloom",
         shelfLife: "4 Days (Refrigerated 10 Days)"
       },
@@ -195,7 +185,7 @@ export const MENU_CATEGORIES = [
         kannadaName: "ಕಾಯಿ ಹೋಳಿಗೆ (ಕೊಬ್ಬರಿ ಒಬ್ಬಟ್ಟು)",
         description: "Fresh grated coconut cooked with organic jaggery, rolled into soft translucent layers and toasted with ghee.",
         weights: ["Pack of 1","Pack of 5", "Pack of 10"],
-        prices: { "Pack of 1":26,"Pack of 5": 129, "Pack of 10": 269 },
+        prices: { "Pack of 1":37,"Pack of 5": 185, "Pack of 10": 370 },
         badge: "Melt In Mouth",
         shelfLife: "4 Days (Refrigerated 8 Days)"
       },
@@ -205,7 +195,7 @@ export const MENU_CATEGORIES = [
         kannadaName: "ಶುದ್ಧ ತುಪ್ಪದ ಬೇಸನ್ ಲಾಡು",
         description: "Slow-roasted gram flour in authentic desi cow ghee, fragrant with green cardamom, cashews and golden raisins.",
         weights: ["250g", "500g", "1kg"],
-        prices: { "250g": 228, "500g": 439, "1kg": 859 },
+        prices: { "250g": 230, "500g": 450, "1kg": 890 },
         badge: "Pure Cow Ghee",
         shelfLife: "30 Days"
       },
@@ -225,7 +215,7 @@ export const MENU_CATEGORIES = [
         kannadaName: "ಖರ್ಜಿಕಾಯಿ",
         description: "Classic Karnataka sweet prepared with a rich, handcrafted filling and traditional ghee-roasted finish.",
         weights: ["Pack of 1","Pack of 5", "Pack of 10"],
-        prices: { "Pack of 1":10,"Pack of 5": 50, "Pack of 10": 100 },
+        prices: { "Pack of 1":14,"Pack of 5": 70, "Pack of 10": 140 },
         badge: "Heritage Sweet",
         shelfLife: "15 Days"
       }
