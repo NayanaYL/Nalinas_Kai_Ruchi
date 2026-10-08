@@ -33,6 +33,7 @@ export const DEFAULT_REVIEWS = [
 		comment: "ಪುಳಿಯೋಗರೆ ತುಂಬಾ ಚೆನ್ನಾಗಿತ್ತು. ಮನೆಯವರೆಲ್ಲರೂ ತುಂಬಾ ಇಷ್ಟಪಟ್ಟರು. ನಿಮ್ಮ ಕುಟುಂಬದ ಎಲ್ಲರಿಗೂ ಧನ್ಯವಾದಗಳು.",
 		verified: false,
 		status: "approved"
+<<<<<<< HEAD
 	},
 	{
 		id: "rev-likhith-s-r",
@@ -55,5 +56,7 @@ export const DEFAULT_REVIEWS = [
 		comment: "ತುಂಬಾ ಚೆನ್ನಾಗಿದೆ. ರುಚಿಯಾಗಿದೆ. spicy ಯಾಗಿದೆ. ಧನ್ಯವಾದಗಳು. 🙏🙏🌹",
 		verified: false,
 		status: "approved"
+=======
+>>>>>>> 5d62b08fbb9159e0d84843dd0275ac0751e59271
 	}
 ];
