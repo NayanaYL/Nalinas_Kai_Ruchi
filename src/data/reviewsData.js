@@ -55,5 +55,16 @@ export const DEFAULT_REVIEWS = [
 		comment: "ತುಂಬಾ ಚೆನ್ನಾಗಿದೆ. ರುಚಿಯಾಗಿದೆ. spicy ಯಾಗಿದೆ. ಧನ್ಯವಾದಗಳು. 🙏🙏🌹",
 		verified: false,
 		status: "approved"
+	},
+	{
+		id: "rev-sindhu-shidlaghatta",
+		name: "Sindhu",
+		location: "Shidlaghatta",
+		rating: 5,
+		date: "October 2026",
+		product: "Shankara Poli • Kodubale",
+		comment: "The taste is so good! A must-buy product. Both products are so good!",
+		verified: false,
+		status: "approved"
 	}
 ];
