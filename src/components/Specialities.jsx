@@ -24,12 +24,12 @@ export const Specialities = ({ lang, onSelectCategory }) => {
         </div>
 
         {/* 3 Horizontal Cards */}
-        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6 lg:gap-7">
-          {MENU_CATEGORIES.map((cat, index) => (
+        <div className="grid grid-cols-1 sm:grid-cols-2 xl:grid-cols-4 gap-6 lg:gap-7">
+          {MENU_CATEGORIES.map((cat) => (
             <div
               key={cat.id}
               onClick={() => onSelectCategory(cat)}
-              className={`group cursor-pointer bg-[#fffdf9] rounded-[6px] border border-[#e8dbc4] overflow-hidden shadow-sm hover:shadow-md transition-all duration-300 flex flex-col hover:-translate-y-1 ${index === MENU_CATEGORIES.length - 1 ? 'tablet-category-center' : ''}`}
+              className="group cursor-pointer bg-[#fffdf9] rounded-[6px] border border-[#e8dbc4] overflow-hidden shadow-sm hover:shadow-md transition-all duration-300 flex flex-col hover:-translate-y-1"
             >
               {/* Card Image */}
               <div className="w-full aspect-[16/9] sm:aspect-[2/1] overflow-hidden bg-[#3a0705]/10 relative">

@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
 import { X, MessageCircle } from 'lucide-react';
+import { BUSINESS_WHATSAPP } from '../utils/cart';
 
 export const MenuCategoryModal = ({ category, lang, onClose, onAddToCart }) => {
   const [selectedWeights, setSelectedWeights] = useState({});
@@ -20,17 +21,19 @@ export const MenuCategoryModal = ({ category, lang, onClose, onAddToCart }) => {
     const price = getPrice(item);
     const msg = `Hello Nalina's Kai Ruchi! I would like to order:
 - Item: ${item.name} (${item.kannadaName})
-- Quantity/Pack: ${weight}
+- Quantity: 1
+- Pack size: ${weight}
 - Price: ₹${price}
+- Total: ₹${price}
 
 Please confirm availability and dispatch details.`;
-    return `https://wa.me/919980819355?text=${encodeURIComponent(msg)}`;
+    return `https://wa.me/${BUSINESS_WHATSAPP}?text=${encodeURIComponent(msg)}`;
   };
 
   return (
     <div className="fixed inset-0 z-50 flex items-center justify-center p-4 bg-black/65 backdrop-blur-sm animate-fadeIn">
-      <div 
-        className="bg-[#fffdf9] w-full max-w-3xl max-h-[90vh] rounded-lg shadow-2xl border border-[#d8a83e]/40 flex flex-col overflow-hidden text-left"
+      <div
+        className="bg-[#fffdf9] w-full max-w-6xl max-h-[92vh] rounded-lg shadow-2xl border border-[#d8a83e]/40 flex flex-col overflow-hidden text-left"
         onClick={(e) => e.stopPropagation()}
       >
         {/* Modal Header */}
@@ -58,92 +61,108 @@ Please confirm availability and dispatch details.`;
         </div>
 
         {/* Modal Items List */}
-        <div className="overflow-y-auto p-4 sm:p-6 space-y-5 flex-1 divide-y divide-[#f0e6d6]">
-          {category.items.map((item) => {
-            const currentWeight = selectedWeights[item.id] || item.weights[0];
-            const currentPrice = item.prices[currentWeight];
+        <div className="overflow-y-auto p-4 sm:p-6 flex-1">
+          <div className="grid grid-cols-1 lg:grid-cols-2 gap-4">
+            {category.items.map((item) => {
+              const currentWeight = selectedWeights[item.id] || item.weights[0];
+              const currentPrice = item.prices[currentWeight];
 
-            return (
-              <div key={item.id} className="pt-4 first:pt-0 flex flex-col sm:flex-row sm:items-center justify-between gap-4">
-                <div className="flex-1 space-y-1">
-                  <div className="flex items-center gap-2 flex-wrap">
-                    <h3 className="font-serif text-[17px] font-bold text-[#2b1710]">
-                      {item.name}
-                    </h3>
-                    <span className="font-['Noto_Serif_Kannada',serif] text-[14px] text-[#6d5142]">
-                      ({item.kannadaName})
-                    </span>
-                    {item.badge && (
-                      <span className="bg-[#d8a83e]/20 text-[#5a0905] text-[10.5px] font-semibold px-2 py-0.5 rounded-full border border-[#d8a83e]/30">
-                        {item.badge}
-                      </span>
-                    )}
+              return (
+                <article key={item.id} className="flex flex-col sm:flex-row gap-3 rounded-lg border border-[#e8dbc4] bg-white p-3 shadow-sm">
+                  <div className="flex h-52 w-full flex-shrink-0 items-center justify-center overflow-hidden rounded-md bg-[#f8f2e6] sm:h-44 sm:w-32">
+                    <img
+                      src={item.image}
+                      alt={`${item.name} promotional poster with product photo and printed details`}
+                      loading="lazy"
+                      decoding="async"
+                      className="h-full w-full rounded-md border border-[#d8a83e]/40 object-contain"
+                    />
                   </div>
+                  <div className="flex min-w-0 flex-1 flex-col gap-2">
+                    <div className="flex-1 space-y-1">
+                      <div className="flex items-center gap-2 flex-wrap">
+                        <h3 className="font-serif text-[17px] font-bold text-[#2b1710]">
+                          {item.name}
+                        </h3>
+                        {item.kannadaName && (
+                          <span className="font-['Noto_Serif_Kannada',serif] text-[14px] text-[#6d5142]">
+                            ({item.kannadaName})
+                          </span>
+                        )}
+                        {item.badge && (
+                          <span className="bg-[#d8a83e]/20 text-[#5a0905] text-[10.5px] font-semibold px-2 py-0.5 rounded-full border border-[#d8a83e]/30">
+                            {item.badge}
+                          </span>
+                        )}
+                      </div>
 
-                  <p className="text-[12.5px] text-[#6d5142] font-sans leading-relaxed">
-                    {item.description}
-                  </p>
+                      <p className="text-[12.5px] text-[#6d5142] font-sans leading-relaxed">
+                        {item.description}
+                      </p>
 
-                  {/* Weight Selector Pills */}
-                  <div className="flex flex-wrap items-center gap-2 pt-2">
-                    <span className="text-[11px] font-medium text-[#52392c]">Pack Size:</span>
-                    {item.weights.map((w) => (
+                      <div className="flex flex-wrap items-center gap-2 pt-2">
+                        <span className="text-[11px] font-medium text-[#52392c]">Pack Size:</span>
+                        {item.weights.map((weight) => (
+                          <button
+                            key={weight}
+                            type="button"
+                            onClick={() => handleWeightSelect(item.id, weight)}
+                            className={`min-h-10 min-w-11 px-2.5 py-1 text-[11.5px] rounded-full border transition-all ${
+                              currentWeight === weight
+                                ? 'bg-[#5a0905] text-[#fff9ec] border-[#5a0905] font-semibold'
+                                : 'bg-white text-[#52392c] border-[#d8dbc4] hover:border-[#5a0905]'
+                            }`}
+                          >
+                            {weight}
+                          </button>
+                        ))}
+                      </div>
+                    </div>
+
+                    <div className="flex items-end justify-between gap-3">
+                      <div>
+                        <div className="text-[19px] font-bold text-[#5a0905] font-serif">
+                          ₹{currentPrice}
+                        </div>
+                        {item.shelfLife && (
+                          <div className="text-[10px] text-[#6d5142]">
+                            Shelf life: {item.shelfLife}
+                          </div>
+                        )}
+                      </div>
+                    </div>
+
+                    <div className="grid grid-cols-2 gap-2 w-full">
                       <button
-                        key={w}
-                        onClick={() => handleWeightSelect(item.id, w)}
-                        className={`min-h-10 min-w-11 px-2.5 py-1 text-[11.5px] rounded-full border transition-all ${
-                          currentWeight === w
-                            ? 'bg-[#5a0905] text-[#fff9ec] border-[#5a0905] font-semibold'
-                            : 'bg-white text-[#52392c] border-[#d8dbc4] hover:border-[#5a0905]'
-                        }`}
+                        type="button"
+                        onClick={() => onAddToCart?.({
+                          id: item.id,
+                          name: item.name,
+                          kannadaName: item.kannadaName,
+                          weight: currentWeight,
+                          price: currentPrice,
+                          image: item.image || category.image,
+                        }, category.image)}
+                        className="inline-flex min-h-10 items-center justify-center gap-1.5 bg-[#f5e7c0] hover:bg-[#e8d5a1] text-[#2b1710] px-2.5 py-1.5 rounded-full text-[12px] font-semibold shadow-sm transition-all hover:scale-[1.01]"
                       >
-                        {w}
+                        Add to Cart
                       </button>
-                    ))}
-                  </div>
-                </div>
 
-                {/* Price & Action Buttons */}
-                <div className="flex w-full sm:w-auto sm:min-w-[210px] flex-col items-stretch sm:items-end justify-between sm:justify-center gap-2 pt-2 sm:pt-0">
-                  <div className="text-right">
-                    <div className="text-[19px] font-bold text-[#5a0905] font-serif">
-                      ₹{currentPrice}
-                    </div>
-                    <div className="text-[10px] text-[#6d5142]">
-                      Shelf life: {item.shelfLife}
+                      <a
+                        href={createWhatsAppOrderUrl(item)}
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        className="inline-flex min-h-10 items-center justify-center gap-1.5 bg-[#25D366] hover:bg-[#20ba59] text-white px-2.5 py-1.5 rounded-full text-[12px] font-semibold shadow-sm transition-all hover:scale-[1.01]"
+                      >
+                        <MessageCircle className="w-3.5 h-3.5 fill-current" />
+                        <span>Order Now</span>
+                      </a>
                     </div>
                   </div>
-
-                  <div className="grid grid-cols-2 gap-2 w-full sm:w-auto">
-                    <button
-                      type="button"
-                      onClick={() => onAddToCart?.({
-                        id: item.id,
-                        name: item.name,
-                        kannadaName: item.kannadaName,
-                        weight: currentWeight,
-                        price: currentPrice,
-                        image: category.image,
-                      }, category.image)}
-                      className="inline-flex min-h-10 items-center justify-center gap-1.5 bg-[#f5e7c0] hover:bg-[#e8d5a1] text-[#2b1710] px-2.5 py-1.5 rounded-full text-[12px] font-semibold shadow-sm transition-all hover:scale-[1.01]"
-                    >
-                      Add to Cart
-                    </button>
-
-                    <a
-                      href={createWhatsAppOrderUrl(item)}
-                      target="_blank"
-                      rel="noopener noreferrer"
-                      className="inline-flex min-h-10 items-center justify-center gap-1.5 bg-[#25D366] hover:bg-[#20ba59] text-white px-2.5 py-1.5 rounded-full text-[12px] font-semibold shadow-sm transition-all hover:scale-[1.01]"
-                    >
-                      <MessageCircle className="w-3.5 h-3.5 fill-current" />
-                      <span>Order Now</span>
-                    </a>
-                  </div>
-                </div>
-              </div>
-            );
-          })}
+                </article>
+              );
+            })}
+          </div>
         </div>
 
         {/* Modal Footer */}
